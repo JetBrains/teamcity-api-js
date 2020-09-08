@@ -1,1 +1,1 @@
-module.exports = window.TeamCityAPI.ReactVirtualized
+module.exports = (window.TeamCityApi || window.TeamcityReactApi).ReactVirtualized

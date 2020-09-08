@@ -1,1 +1,1 @@
-module.exports = window.TeamCityAPI.moment
+module.exports = (window.TeamCityApi || window.TeamcityReactApi).moment

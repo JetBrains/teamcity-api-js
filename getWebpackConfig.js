@@ -33,15 +33,16 @@ module.exports = function getWebpackConfig({
   }
   Object.assign(ringUiConfig.loaders.babelLoader, babelLoader)
 
+  //TODO: remove TeamcityReactApi after 2020.2.rc
+  const globalObj = '(TeamCityApi || TeamcityReactApi)'
   const externals = {
-    react: 'TeamCityAPI.React',
-    'react-dom': 'TeamCityAPI.ReactDom',
+    react: `${globalObj}.React`,
+    'react-dom': `${globalObj}.ReactDom`,
   }
-
   if (reusePackages === true) {
-    externals.moment = 'TeamCityAPI.moment'
-    externals.classnames = 'TeamCityAPI.classnames'
-    externals['react-virtualized'] = 'TeamCityAPI.ReactVirtualized'
+    externals.moment = `${globalObj}.moment`
+    externals.classnames = `${globalObj}.classnames`
+    externals['react-virtualized'] = `${globalObj}.ReactVirtualized`
   }
 
   return (env = {}, argv = {}) => ({
