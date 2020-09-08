@@ -1,0 +1,196 @@
+declare module '@jetbrains/teamcity-api' {
+  declare type BranchType = {
+    name: string,
+    internalName?: string,
+    groupFlag?: boolean,
+    default?: boolean,
+    active?: boolean,
+    wildcard?: boolean,
+    unspecified?: boolean,
+  }
+
+  declare type AllBuildsProps = {
+    +locatorHelpUrl?: string,
+    +withProjectBuildtypeFilter?: boolean,
+    +pageSize?: number,
+    +skipQuerySync?: boolean,
+    +branch?: ?BranchType,
+    ...
+  }
+
+  declare type RenderType = <P: ?{...}>(
+    elementOrId: HTMLElement | string,
+    Type: React$ComponentType<P>,
+    props: P,
+  ) => void
+
+  declare type RequestTextType = (endpoint: string, options?: RequestOptions) => Promise<string>
+
+  declare type RequestJSONType = (endpoint: string, options?: RequestOptions) => Promise<*>
+
+  declare type UtilsType = {
+    requestText: RequestTextType,
+    requestJSON: RequestJSONType,
+  }
+
+  declare type ComponentsType = {|
+    +AllBuilds: React$ComponentType<AllBuildsProps>,
+  |}
+
+  declare export type PlaceIdList = {
+    SAKURA_HEADER_NAVIGATION_AFTER: 'SAKURA_HEADER_NAVIGATION_AFTER',
+    SAKURA_HEADER_USERNAME_BEFORE: 'SAKURA_HEADER_USERNAME_BEFORE',
+    SAKURA_HEADER_RIGHT: 'SAKURA_HEADER_RIGHT',
+    SAKURA_FOOTER_RIGHT: 'SAKURA_FOOTER_RIGHT',
+    SAKURA_BEFORE_CONTENT: 'SAKURA_BEFORE_CONTENT',
+    SAKURA_SIDEBAR_TOP: 'SAKURA_SIDEBAR_TOP',
+    SAKURA_PROJECT_BEFORE_CONTENT: 'SAKURA_PROJECT_BEFORE_CONTENT',
+    SAKURA_PROJECT_TRENDS: 'SAKURA_PROJECT_TRENDS',
+    SAKURA_BUILD_CONFIGURATION_TREND_CARD: 'SAKURA_BUILD_CONFIGURATION_TREND_CARD',
+    SAKURA_PROJECT_BUILDS: 'SAKURA_PROJECT_BUILDS',
+    SAKURA_BUILD_CONFIGURATION_BEFORE_CONTENT: 'SAKURA_BUILD_CONFIGURATION_BEFORE_CONTENT',
+    SAKURA_BUILD_CONFIGURATION_BUILDS: 'SAKURA_BUILD_CONFIGURATION_BUILDS',
+    SAKURA_BUILD_CONFIGURATION_BRANCHES: 'SAKURA_BUILD_CONFIGURATION_BRANCHES',
+    SAKURA_BUILD_BEFORE_CONTENT: 'SAKURA_BUILD_BEFORE_CONTENT',
+    SAKURA_BUILD_LINE_EXPANDED: 'SAKURA_BUILD_LINE_EXPANDED',
+  }
+
+  declare export type PlaceId = $Keys<PlaceIdList>
+  declare export type UnsubscribeFromLifecycle = () => void
+  declare export type PluginCallback = (context: PluginContext) => mixed
+
+  declare export type PluginOptions = {
+    containerTagName?: string,
+    containerClassNames?: string | Array<string>,
+    debug?: boolean,
+    ...
+  }
+
+  declare export type PluginConstructorArguments = {
+    +name: string,
+    +content: string | HTMLElement | React$ComponentType<*>,
+
+    +options?: PluginOptions,
+
+    +onCreate?: () => mixed,
+    +onContentUpdate?: PluginCallback,
+    +onContextUpdate?: PluginCallback,
+    +onMount?: PluginCallback,
+    +onUnmount?: PluginCallback,
+    +onDelete?: PluginCallback,
+  }
+
+  declare export type PluginContext = {
+    location: {
+      +projectId?: ?string,
+      +buildId?: ?string,
+      +buildTypeId?: ?string,
+      +agentId?: ?string,
+      +agentPoolId?: ?string,
+      +agentTypeId?: ?string,
+    },
+  }
+
+  declare interface PluginCommon {
+    debug: boolean;
+    name: string;
+    placeId: PlaceId;
+
+    content: string | HTMLElement | React$ComponentType<*>;
+  }
+
+  declare export interface PluginCallbacks extends PluginCommon {
+    +onCreate: (callback: () => mixed) => () => void;
+    +onMount: (callback: PluginCallback) => UnsubscribeFromLifecycle;
+    +onContextUpdate: (callback: PluginCallback) => UnsubscribeFromLifecycle;
+    +onUnmount: (callback: PluginCallback) => UnsubscribeFromLifecycle;
+    +onDelete: (callback: PluginCallback) => UnsubscribeFromLifecycle;
+  }
+
+  declare export interface PluginInterface extends PluginCallbacks {
+    options: PluginOptions;
+
+    content: string | HTMLElement | React$ComponentType<*>;
+    container: HTMLElement;
+
+    +mount: () => void;
+    +unmount: () => void;
+
+    +updateContext: (context: PluginContext) => void;
+
+    constructor(placeId: PlaceId, args: PluginConstructorArguments): void;
+    replaceContent(content: string | HTMLElement | React$ComponentType<*>): void;
+    registerEventHandler(element: HTMLElement, event: string, callback: () => mixed): void;
+  }
+
+  declare type PluginType = Class<PluginInterface> & {
+    placeIds: PlaceIdList,
+    ...
+  }
+
+  declare export interface PluginRegistry {
+    searchByPlaceId(
+      placeId: PlaceId,
+      pluginName: string,
+    ): ?PluginInterface | Array<PluginInterface>;
+    findUniquePlugin(placeId: PlaceId, pluginName: string): ?PluginInterface;
+    search(pluginName: string): Array<PluginInterface>;
+  }
+
+  declare export type TeamCityAPIType = {|
+    render: RenderType,
+    Components: ComponentsType,
+    utils: UtilsType,
+    Plugin: PluginType,
+    pluginRegistry: PluginRegistry,
+  |}
+
+  declare export var render: RenderType
+  declare export var utils: UtilsType
+  declare export var pluginRegistry: PluginRegistry
+  declare export var Components: ComponentsType
+  declare export var Plugin: PluginType
+  declare export var React: $Exports<'react'>
+  declare export var ReactDOM: $Exports<'react-dom'>
+  declare export var moment: $Exports<'moment'>
+  declare export var classnames: $Exports<'classnames'>
+  declare export var ReactVirtualized: $Exports<'react-virtualized'>
+
+  declare export default TeamCityAPIType
+}
+
+declare module '@jetbrains/teamcity-api/plugin' {
+  declare module.exports: $PropertyType<$Exports<'@jetbrains/teamcity-api'>, 'Plugin'>
+}
+
+declare module '@jetbrains/teamcity-api/plugin-registry' {
+  declare module.exports: $PropertyType<$Exports<'@jetbrains/teamcity-api'>, 'pluginRegistry'>
+}
+
+declare module '@jetbrains/teamcity-api/components' {
+  declare module.exports: $PropertyType<$Exports<'@jetbrains/teamcity-api'>, 'Components'>
+}
+
+declare module '@jetbrains/teamcity-api/utils' {
+  declare module.exports: $PropertyType<$Exports<'@jetbrains/teamcity-api'>, 'utils'>
+}
+
+declare module '@jetbrains/teamcity-api/react' {
+  declare module.exports: $Exports<'react'>
+}
+
+declare module '@jetbrains/teamcity-api/react-dom' {
+  declare module.exports: $Exports<'react-dom'>
+}
+
+declare module '@jetbrains/teamcity-api/moment' {
+  declare module.exports: $Exports<'moment'>
+}
+
+declare module '@jetbrains/teamcity-api/classnames' {
+  declare module.exports: $Exports<'classnames'>
+}
+
+declare module '@jetbrains/teamcity-api/react-virtualized' {
+  declare module.exports: $Exports<'react-virtualized'>
+}

@@ -1,0 +1,21 @@
+{
+  "name": "@jetbrains/teamcity-api",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "license": "MIT",
+  "scripts": {
+    "prepare": "node generate-ts.js && tsc"
+  },
+  "devDependencies": {
+    "@jetbrains/ring-ui": "^3.0.62",
+    "@khanacademy/flow-to-ts": "^0.1.6",
+    "typescript": "^3.9.7",
+    "webpack": "^4.44.1",
+    "webpack-bundle-analyzer": "^3.8.0"
+  }
+}
