@@ -14,7 +14,7 @@ To start using the package, import it as a module:
 
 ``import TeamCityAPI from "@jetbrains/teamcity-api"``
 
-Module contains a bunch of useful items to assist. The set of items is not finalized yet. 
+Module contains a bunch of useful items to assist you during plugin development. The set of items is not in a final version yet. 
 
 `Components` - set of reusable TeamCity Components
 
