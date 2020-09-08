@@ -3,19 +3,38 @@
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JetBrains/teamcity-api-js.git"
+  },
+  "homepage": "https://github.com/JetBrains/teamcity-api-js#readme",
+  "keywords": [
+    "teamcity",
+    "jetbrains"
+  ],
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "license": "MIT",
   "dependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
-  "license": "MIT",
-  "scripts": {
-    "prepare": "node generate-ts.js && tsc"
-  },
   "devDependencies": {
     "@jetbrains/ring-ui": "^3.0.62",
     "@khanacademy/flow-to-ts": "^0.1.6",
+    "commitizen": "^4.2.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "standard-version": "^9.0.0",
     "typescript": "^3.9.7",
     "webpack": "^4.44.1",
     "webpack-bundle-analyzer": "^3.8.0"
+  },
+  "scripts": {
+    "commit": "git-cz",
+    "prerelease:ci": "node generate-ts.js && tsc",
+    "release:ci": "standard-version && git push --follow-tags origin master && npm publish"
   }
 }
