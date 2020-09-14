@@ -1,0 +1,28 @@
+{
+  "name": "@jetbrains/browserslist-config-teamcity",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JetBrains/teamcity-api-js.git"
+  },
+  "keywords": [
+    "teamcity",
+    "jetbrains"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "standard-version": "^9.0.0"
+  },
+  "scripts": {
+    "commit": "git-cz",
+    "release:ci": "standard-version && git push origin master && npm publish"
+  },
+  "standard-version": {
+    "skip": {
+      "changelog": true,
+      "tag": true
+    }
+  }
+}
