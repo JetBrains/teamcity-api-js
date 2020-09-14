@@ -8,8 +8,8 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
  * @param {Object} options - options for generating webpack.config.js
  * @param {boolean | undefined} options.useTypeScript - set to true if you want to write code in TypeScript
  * @param {boolean | undefined} options.useFlow - set to true if you want to write code using flow.js
- * @param {string} options.srcPath - Path to the source directory. For examble: path.join(__dirname, 'src')
- * @param {string} options.outputPath - Path to write the compiled files to disk. For examble: path.resolve(__dirname, '../demoPlugin-server/src/main/resources/buildServerResources')
+ * @param {string} options.srcPath - Path to the source directory. For example: path.join(__dirname, 'src')
+ * @param {string} options.outputPath - Path to write the compiled files to disk. For example: path.resolve(__dirname, '../demoPlugin-server/src/main/resources/buildServerResources')
  * @param {string} options.entry - The point or points where to start the application bundling process. For example: './src/index.ts'.
  * @param {boolean | undefined} options.reusePackages - By default, you only need to reuse the React and ReactDOM libraries for the plugin to work properly. But you can enable this option and import third party modules from Teamcity bundle to reduce the size of your package.
  * @returns {Function} webpack configuration

@@ -1,3 +1,5 @@
+const {browserslist} = require('./package.json')
+
 module.exports = {
   presets: [
     [
@@ -6,9 +8,14 @@ module.exports = {
         modules: false,
         useBuiltIns: 'usage',
         corejs: 3,
+        targets: browserslist,
       },
     ],
     '@babel/preset-react',
   ],
-  plugins: ['@babel/plugin-transform-runtime', '@babel/plugin-proposal-class-properties'],
+  plugins: [
+    '@babel/plugin-transform-runtime',
+    '@babel/plugin-proposal-class-properties',
+    '@babel/plugin-proposal-export-default-from',
+  ],
 }

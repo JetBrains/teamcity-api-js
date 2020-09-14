@@ -36,5 +36,8 @@
     "commit": "git-cz",
     "prerelease:ci": "node generate-ts.js && tsc",
     "release:ci": "standard-version --prerelease alpha && git push --follow-tags origin master && npm publish"
-  }
+  },
+  "browserslist": [
+    "extends @jetbrains/browserslist-config-teamcity"
+  ]
 }
