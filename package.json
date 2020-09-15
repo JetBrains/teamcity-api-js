@@ -18,15 +18,12 @@
     }
   },
   "license": "MIT",
-  "dependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
-  },
   "devDependencies": {
     "@jetbrains/ring-ui": "^3.0.62",
     "@khanacademy/flow-to-ts": "^0.1.6",
     "commitizen": "^4.2.1",
     "cz-conventional-changelog": "^3.3.0",
+    "flow-bin": "^0.133.0",
     "standard-version": "^9.0.0",
     "typescript": "^3.9.7",
     "webpack": "^4.44.1",
@@ -34,7 +31,7 @@
   },
   "scripts": {
     "commit": "git-cz",
-    "prerelease:ci": "node generate-ts.js && tsc",
+    "prerelease:ci": "node generate-ts.js && tsc && flow check",
     "release:ci": "standard-version --prerelease alpha && git push --follow-tags origin master && npm publish"
   },
   "browserslist": [

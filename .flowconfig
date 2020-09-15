@@ -1,0 +1,10 @@
+[ignore]
+.*/node_modules/.*
+
+[include]
+
+[libs]
+index.js.flow
+
+[options]
+exact_by_default=true
