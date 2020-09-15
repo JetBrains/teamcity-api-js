@@ -3,6 +3,11 @@ const webpack = require('webpack')
 const ringUiConfig = require('@jetbrains/ring-ui/webpack.config')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
+const processPath = process.cwd()
+const tsConfigExists = fs.existsSync(path.join(processPath, './tsconfig.json'))
+const postcssConfigExists = fs.existsSync(path.join(processPath, './postcss.config.js'))
+const babelConfigExists = fs.existsSync(path.join(processPath, './babel.config.js'))
+
 /**
  * This function returns ready-to-use webpack configuration for creating frontend plugins for TeamCity
  * @param {Object} options - options for generating webpack.config.js
@@ -18,23 +23,27 @@ module.exports = function getWebpackConfig(options) {
   const {useTypeScript, useFlow, srcPath, outputPath, entry, reusePackages} = options
 
   ringUiConfig.loaders.cssLoader.include = [...ringUiConfig.loaders.cssLoader.include, srcPath]
-  ringUiConfig.loaders.cssLoader.use.forEach(item => {
-    if (item.loader != null && item.loader.includes('postcss-loader')) {
-      item.options = {
-        ...item.options,
-        config: {
-          path: path.join(__dirname, './postcss.config.js')
-        },
+  if (!postcssConfigExists) {
+    ringUiConfig.loaders.cssLoader.use.forEach(item => {
+      if (item.loader != null && item.loader.includes('postcss-loader')) {
+        item.options = {
+          ...item.options,
+          config: {
+            path: path.join(__dirname, './postcss.config.js')
+          },
+        }
       }
-    }
-  })
+    })
+  }
 
   const babelLoader = {
     loader: 'babel-loader',
     options: {
       cacheDirectory: true,
       babelrc: false,
-      extends: path.join(__dirname, useFlow ? './flow.babel.config.js' : './babel.config.js'),
+      extends: babelConfigExists
+        ? './babel.config.js'
+        : path.join(__dirname, useFlow ? './flow.babel.config.js' : './babel.config.js'),
     },
   }
   Object.assign(ringUiConfig.loaders.babelLoader, babelLoader)
@@ -70,10 +79,10 @@ module.exports = function getWebpackConfig(options) {
           use: [
             {
               loader: 'ts-loader',
-              options: {
+              options: !tsConfigExists  ? {
                 context: srcPath,
                 configFile: path.join(__dirname, './plugin.tsconfig.json')
-              }
+              } : undefined,
             },
           ],
         },
