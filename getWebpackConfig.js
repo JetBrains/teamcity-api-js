@@ -46,9 +46,7 @@ module.exports = function getWebpackConfig(options) {
     'react-dom': `${globalObj}.ReactDom`,
   }
   if (reusePackages === true) {
-    externals.moment = `${globalObj}.moment`
-    externals.classnames = `${globalObj}.classnames`
-    externals['react-virtualized'] = `${globalObj}.ReactVirtualized`
+    //TODO: reuse packages not from TeamCityAPI
   }
 
   return (env = {}, argv = {}) => ({

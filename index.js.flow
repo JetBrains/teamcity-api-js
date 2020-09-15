@@ -152,9 +152,6 @@ declare module '@jetbrains/teamcity-api' {
   declare export var Plugin: PluginType
   declare export var React: $Exports<'react'>
   declare export var ReactDOM: $Exports<'react-dom'>
-  declare export var moment: $Exports<'moment'>
-  declare export var classnames: $Exports<'classnames'>
-  declare export var ReactVirtualized: $Exports<'react-virtualized'>
 
   declare export default TeamCityAPIType
 }
@@ -181,16 +178,4 @@ declare module '@jetbrains/teamcity-api/react' {
 
 declare module '@jetbrains/teamcity-api/react-dom' {
   declare module.exports: $Exports<'react-dom'>
-}
-
-declare module '@jetbrains/teamcity-api/moment' {
-  declare module.exports: $Exports<'moment'>
-}
-
-declare module '@jetbrains/teamcity-api/classnames' {
-  declare module.exports: $Exports<'classnames'>
-}
-
-declare module '@jetbrains/teamcity-api/react-virtualized' {
-  declare module.exports: $Exports<'react-virtualized'>
 }
