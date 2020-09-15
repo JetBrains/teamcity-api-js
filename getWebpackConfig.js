@@ -1,3 +1,4 @@
+const fs = require('fs')
 const path = require('path')
 const webpack = require('webpack')
 const ringUiConfig = require('@jetbrains/ring-ui/webpack.config')
