@@ -49,8 +49,7 @@ module.exports = function getWebpackConfig(options) {
   }
   Object.assign(ringUiConfig.loaders.babelLoader, babelLoader)
 
-  //TODO: remove TeamcityReactAPI after 2020.2.rc
-  const globalObj = '(window.TeamCityAPI || window.TeamcityReactAPI)'
+  const globalObj = 'window.TeamCityAPI'
   const externals = {
     react: `${globalObj}.React`,
     'react-dom': `${globalObj}.ReactDom`,

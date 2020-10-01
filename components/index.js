@@ -1,1 +1,1 @@
-module.exports = (window.TeamCityAPI || window.TeamcityReactAPI).Components
+module.exports = window.TeamCityAPI.Components
