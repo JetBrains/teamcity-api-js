@@ -12,8 +12,8 @@ const tsCode = convert(flowCode, {inlineUtilityTypes: true})
   .replace(/RequestOptions/g, 'RequestInit')
   .replace(/declare type/g, 'type')
   .replace(/export declare/g, 'export')
-  .replace(/export var ([\w-]+): \$Exports<"([\w-]+)">/g, "export * as $1 from '$2'")
-  .replace(/export declare var ([\w-]+): \$Exports<"([\w-]+)">/g, "export * as $1 from '$2'")
+  .replace(/export var ([\w-]+): \$Exports<"([\w-]+)">/g, "import * as $1 from '$2'\n  export {$1}  ")
+  .replace(/export declare var ([\w-]+): \$Exports<"([\w-]+)">/g, "import * as $1 from '$2'\n  export ${$1}")
   .replace(
     /declare module.exports: \$Exports<"([\w-]+)">/g,
     "import * as module from '$1'\n  export default module",
