@@ -49,6 +49,12 @@ module.exports = function getWebpackConfig(options) {
   }
   Object.assign(ringUiConfig.loaders.babelLoader, babelLoader)
 
+  ringUiConfig.loaders.svgInlineLoader.include.push(
+    require('@jetbrains/icons'),
+    require('@jetbrains/logos'),
+    srcPath
+  )
+
   const globalObj = 'window.TeamCityAPI'
   const externals = {
     react: `${globalObj}.React`,
