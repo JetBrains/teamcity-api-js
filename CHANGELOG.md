@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2020.2.0-alpha.12](https://github.com/JetBrains/teamcity-api-js/compare/v2020.2.0-alpha.11...v2020.2.0-alpha.12) (2020-10-28)
+
+
+### Features
+
+* added PlaceIDS for the Classic UI ([e270cce](https://github.com/JetBrains/teamcity-api-js/commit/e270cceacf00c266e0a70c7544e75f082e0d7bee))
+
 ## [2020.2.0-alpha.11](https://github.com/JetBrains/teamcity-api-js/compare/v2020.2.0-alpha.10...v2020.2.0-alpha.11) (2020-10-14)
 
 ## [2020.2.0-alpha.10](https://github.com/JetBrains/teamcity-api-js/compare/v2020.2.0-alpha.9...v2020.2.0-alpha.10) (2020-10-07)
