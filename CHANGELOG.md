@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2020.2.0-alpha.14](https://github.com/JetBrains/teamcity-api-js/compare/v2020.2.0-alpha.13...v2020.2.0-alpha.14) (2020-10-29)
+
+
+### Bug Fixes
+
+* changed isSakuraUI to a function ([7999869](https://github.com/JetBrains/teamcity-api-js/commit/79998698bef40bcd533e777a956339fb3e05f09f))
+
 ## [2020.2.0-alpha.13](https://github.com/JetBrains/teamcity-api-js/compare/v2020.2.0-alpha.12...v2020.2.0-alpha.13) (2020-10-29)
 
 
