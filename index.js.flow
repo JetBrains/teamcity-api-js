@@ -31,7 +31,7 @@ declare module '@jetbrains/teamcity-api' {
   declare type UtilsType = {
     requestText: RequestTextType,
     requestJSON: RequestJSONType,
-    isSakuraUI: boolean,
+    isSakuraUI: () => boolean,
   }
 
   declare type ComponentsType = {|
