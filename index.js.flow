@@ -133,7 +133,7 @@ declare module '@jetbrains/teamcity-api' {
 
     +updateContext: (context: PluginContext) => void;
 
-    constructor(placeId: PlaceId, args: PluginConstructorArguments): void;
+    constructor(placeId: PlaceId | Array<PlaceId>, args: PluginConstructorArguments): void;
     replaceContent(content: string | HTMLElement | React$ComponentType<*>): void;
     registerEventHandler(element: HTMLElement, event: string, callback: () => mixed): void;
   }
