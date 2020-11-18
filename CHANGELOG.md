@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2020.2.0-alpha.15](https://github.com/JetBrains/teamcity-api-js/compare/v2020.2.0-alpha.14...v2020.2.0-alpha.15) (2020-11-02)
+
+
+### Features
+
+* added SAKURA_BUILD_OVERVIEW PlaceID ([6db09a4](https://github.com/JetBrains/teamcity-api-js/commit/6db09a4c712a063f39d74cd7229d76e21bf4bc64))
+* updated the Constructor PlaceID argument. Now it accepts the Array of PlaceIds ([9d742e3](https://github.com/JetBrains/teamcity-api-js/commit/9d742e30696d0adc2d7a93a635e5aabc607b3350))
+
 ## [2020.2.0-alpha.14](https://github.com/JetBrains/teamcity-api-js/compare/v2020.2.0-alpha.13...v2020.2.0-alpha.14) (2020-10-29)
 
 
