@@ -58,7 +58,7 @@ module.exports = function getWebpackConfig(options) {
   const globalObj = 'window.TeamCityAPI'
   const externals = {
     react: `${globalObj}.React`,
-    'react-dom': `${globalObj}.ReactDom`,
+    'react-dom': `${globalObj}.ReactDOM`,
   }
   if (reusePackages === true) {
     //TODO: reuse packages not from TeamCityAPI
