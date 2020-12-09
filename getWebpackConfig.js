@@ -29,8 +29,8 @@ module.exports = function getWebpackConfig(options) {
       if (item.loader != null && item.loader.includes('postcss-loader')) {
         item.options = {
           ...item.options,
-          config: {
-            path: path.join(__dirname, './postcss.config.js')
+          postcssOptions: {
+            config: path.join(__dirname, './postcss.config.js'),
           },
         }
       }
@@ -66,6 +66,7 @@ module.exports = function getWebpackConfig(options) {
 
   return (env = {}, argv = {}) => ({
     mode: env.production ? 'production' : 'development',
+    bail: !env.devserver,
     entry,
     output: {
       path: outputPath,
