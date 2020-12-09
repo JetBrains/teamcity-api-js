@@ -32,6 +32,7 @@ declare module '@jetbrains/teamcity-api' {
     requestText: RequestTextType,
     requestJSON: RequestJSONType,
     isSakuraUI: () => boolean,
+    resolveRelativeURL: (relativePath: string, params?: {...}, hash?: string) => string,
   }
 
   declare type ComponentsType = {|
