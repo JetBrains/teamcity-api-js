@@ -1,1 +1,1 @@
-module.exports = window.TeamCityAPI.ReactDom
+module.exports = window.TeamCityAPI.ReactDOM

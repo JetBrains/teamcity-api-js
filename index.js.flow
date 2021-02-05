@@ -1,3 +1,4 @@
+// @flow strict
 declare module '@jetbrains/teamcity-api' {
   declare type BranchType = {
     name: string,
@@ -16,6 +17,43 @@ declare module '@jetbrains/teamcity-api' {
     +skipQuerySync?: boolean,
     +branch?: ?BranchType,
     ...
+  }
+
+  declare type BuildNumberProps = {
+    buildId: ?number,
+    number?: string,
+    withLink?: boolean,
+    ...
+  }
+
+  declare type ContentPanelProps = {
+    +className?: string,
+    +headingClassName?: string,
+    +subheadingClassName?: string,
+    +contentClassName?: string,
+    +heading: string | React$Node,
+    +subheading?: string | React$Node,
+    +href?: string,
+    +headerSnippet?: React$Node,
+    +content: React$Node,
+    +withBorder?: boolean,
+    +expandedByDefault?: boolean,
+    +innerRef?: {current: ?HTMLElement},
+    ...
+  }
+
+  declare type EntityPathProps = {
+    +className?: string,
+    +linkClassName?: string,
+    +withCollapsing?: boolean,
+    +withIcons?: boolean,
+    +withLeafIcon?: boolean,
+    +withLeafStatusIcon?: boolean,
+    +buildId?: string,
+    +hideFilterPath?: boolean,
+    +hideIfSameAsFilter?: boolean,
+    +projectId?: string,
+    +buildTypeId?: string,
   }
 
   declare type RenderType = <P: ?{...}>(
@@ -37,6 +75,9 @@ declare module '@jetbrains/teamcity-api' {
 
   declare type ComponentsType = {|
     +AllBuilds: React$ComponentType<AllBuildsProps>,
+    +BuildNumber: React$ComponentType<BuildNumberProps>,
+    +ContentPanel: React$ComponentType<ContentPanelProps>,
+    +EntityPath: React$ComponentType<EntityPathProps>,
   |}
 
   declare export type PlaceIdList = {
