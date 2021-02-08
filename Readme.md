@@ -16,21 +16,21 @@ To start using the package, import it as a module:
 
 Module contains a bunch of useful items to assist you during plugin development. The set of items is not in a final version yet. 
 
-`Components` - set of reusable TeamCity Components
+`Components` &mdash; set of reusable TeamCity Components
 
-`React` - exposed React instance. It's vital to use the same React library version to integrate your plugin into the TeamCity React vDOM tree ([see the full explanation](https://plugins.jetbrains.com/docs/teamcity/spa-ui-plugins.html)).  
+`React` &mdash; exposed React instance. It's vital to use the same React library version to integrate your plugin into the TeamCity React vDOM tree ([see the full explanation](https://plugins.jetbrains.com/docs/teamcity/spa-ui-plugins.html)).  
 
-`ReactDOM` - exposed ReactDOM instance. It's vital to use the same React library version to integrate your plugin into the TeamCity React vDOM tree ([see the full explanation](https://plugins.jetbrains.com/docs/teamcity/spa-ui-plugins.html)).  
+`ReactDOM` &mdash; exposed ReactDOM instance. It's vital to use the same React library version to integrate your plugin into the TeamCity React vDOM tree ([see the full explanation](https://plugins.jetbrains.com/docs/teamcity/spa-ui-plugins.html)).  
  
-`utils` - set of utilities
+`utils` &mdash; set of utilities
  
-```utils.requestJSON``` - function to request and parse a JSON from the server. It already contains all the headers for the request and automatically parses the response.
+```utils.requestJSON``` &mdash; function to request and parse a JSON from the server. It already contains all the headers for the request and automatically parses the response.
 
-```utils.requestTEXT``` - function to request and parse a TEXT from the server. It already contains all the headers for the request and automatically parses the response.
+```utils.requestTEXT``` &mdash; function to request and parse a TEXT from the server. It already contains all the headers for the request and automatically parses the response.
 
-```Plugin``` - plugin constructor. It expects you to specify PlaceID and content options as arguments (read more about controlled plugins).
+```Plugin``` &mdash; plugin constructor. It expects you to specify PlaceID and content options as arguments (read more about controlled plugins).
                                   
-```pluginRegistry``` - plugin registry which you could use to find a certain instance of your plugin.
+```pluginRegistry``` &mdash; plugin registry which you could use to find a certain instance of your plugin.
                                   
 
 ## Feedback, feature-requests and bug-reports
