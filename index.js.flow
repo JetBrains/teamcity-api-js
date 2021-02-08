@@ -10,7 +10,7 @@ declare module '@jetbrains/teamcity-api' {
     unspecified?: boolean,
   }
 
-  declare type AllBuildsProps = {
+  declare export type AllBuildsProps = {
     +locatorHelpUrl?: string,
     +withProjectBuildtypeFilter?: boolean,
     +pageSize?: number,
@@ -19,7 +19,7 @@ declare module '@jetbrains/teamcity-api' {
     ...
   }
 
-  declare type BuildNumberProps = {
+  declare export type BuildNumberProps = {
     buildId: ?number,
     className?: string,
     number?: string,
@@ -27,7 +27,7 @@ declare module '@jetbrains/teamcity-api' {
     hideStar?: boolean,
   }
 
-  declare type ContentPanelProps = {
+  declare export type ContentPanelProps = {
     +className?: string,
     +headingClassName?: string,
     +subheadingClassName?: string,
@@ -43,7 +43,7 @@ declare module '@jetbrains/teamcity-api' {
     +expandedByDefault?: boolean,
   }
 
-  declare type EntityPathProps = {
+  declare export type EntityPathProps = {
     +className?: string,
     +linkClassName?: string,
     +withCollapsing?: boolean,
