@@ -21,9 +21,9 @@ declare module '@jetbrains/teamcity-api' {
 
   declare type BuildNumberProps = {
     buildId: ?number,
+    className?: string,
     number?: string,
     withLink?: boolean,
-    ...
   }
 
   declare type ContentPanelProps = {
@@ -36,10 +36,9 @@ declare module '@jetbrains/teamcity-api' {
     +href?: string,
     +headerSnippet?: React$Node,
     +content: React$Node,
+    +expandable?: boolean,
     +withBorder?: boolean,
     +expandedByDefault?: boolean,
-    +innerRef?: {current: ?HTMLElement},
-    ...
   }
 
   declare type EntityPathProps = {
@@ -217,6 +216,7 @@ declare module '@jetbrains/teamcity-api/plugin-registry' {
 
 declare module '@jetbrains/teamcity-api/components' {
   declare module.exports: $PropertyType<$Exports<'@jetbrains/teamcity-api'>, 'Components'>
+  declare export type EntityPathProps = EntityPathProps
 }
 
 declare module '@jetbrains/teamcity-api/utils' {
