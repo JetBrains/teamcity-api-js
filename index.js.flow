@@ -31,6 +31,7 @@ declare module '@jetbrains/teamcity-api' {
     +headingClassName?: string,
     +subheadingClassName?: string,
     +contentClassName?: string,
+    +panelType: string,
     +heading: string | React$Node,
     +subheading?: string | React$Node,
     +href?: string,
