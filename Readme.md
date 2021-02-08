@@ -16,7 +16,7 @@ To start using the package, import it as a module:
 
 Module contains a bunch of useful items to assist you during plugin development. The set of items is not in a final version yet. 
 
-`Components` &mdash; set of reusable TeamCity Components
+`Components` &mdash; set of reusable TeamCity Components.
 
 `React` &mdash; exposed React instance. It's vital to use the same React library version to integrate your plugin into the TeamCity React vDOM tree ([see the full explanation](https://plugins.jetbrains.com/docs/teamcity/spa-ui-plugins.html)).  
 
