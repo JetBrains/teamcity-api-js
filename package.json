@@ -19,15 +19,15 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@jetbrains/ring-ui": "3.0.100",
-    "@khanacademy/flow-to-ts": "0.1.7",
-    "commitizen": "4.2.2",
+    "@jetbrains/ring-ui": "3.1.9",
+    "@khanacademy/flow-to-ts": "0.1.9",
+    "commitizen": "4.2.3",
     "cz-conventional-changelog": "3.3.0",
-    "flow-bin": "0.139.0",
-    "standard-version": "9.0.0",
-    "typescript": "4.1.2",
-    "webpack": "4.44.2",
-    "webpack-bundle-analyzer": "4.2.0"
+    "flow-bin": "0.142.0",
+    "standard-version": "9.1.0",
+    "typescript": "4.1.5",
+    "webpack": "4.46.0",
+    "webpack-bundle-analyzer": "4.4.0"
   },
   "scripts": {
     "commit": "git-cz",
