@@ -57,6 +57,16 @@ declare module '@jetbrains/teamcity-api' {
     +buildTypeId?: string,
   }
 
+  declare export type RouterLinkProps = {
+    +innerClassName?: string,
+    +className?: string,
+    +innerRef?: React$Ref<'a'>,
+    +to: string,
+    +title?: string,
+  }
+
+  declare export type RouterButtonProps = RouterLinkProps
+
   declare type RenderType = <P: ?{...}>(
     elementOrId: HTMLElement | string,
     Type: React$ComponentType<P>,
@@ -79,6 +89,8 @@ declare module '@jetbrains/teamcity-api' {
     +BuildNumber: React$ComponentType<BuildNumberProps>,
     +ContentPanel: React$ComponentType<ContentPanelProps>,
     +EntityPath: React$ComponentType<EntityPathProps>,
+    +RouterLink: React$ComponentType<RouterLinkProps>,
+    +RouterButton: React$ComponentType<RouterButtonProps>,
   |}
 
   declare export type PlaceIdList = {
