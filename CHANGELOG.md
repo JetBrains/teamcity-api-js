@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2020.2.0-alpha.28](https://github.com/JetBrains/teamcity-api-js/compare/v2020.2.0-alpha.27...v2020.2.0-alpha.28) (2021-02-26)
+
 ## [2020.2.0-alpha.27](https://github.com/JetBrains/teamcity-api-js/compare/v2020.2.0-alpha.26...v2020.2.0-alpha.27) (2021-02-26)
 
 ## [2020.2.0-alpha.26](https://github.com/JetBrains/teamcity-api-js/compare/v2020.2.0-alpha.25...v2020.2.0-alpha.26) (2021-02-25)
