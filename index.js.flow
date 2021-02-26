@@ -24,9 +24,11 @@ declare module '@jetbrains/teamcity-api' {
     props: P,
   ) => void
 
-  declare type RequestTextType = (endpoint: string, options?: RequestOptions) => Promise<string>
+  declare type RequestTextType =
+    (endpoint: string, options?: RequestOptions, omitErrorMessage?: boolean) => Promise<string>
 
-  declare type RequestJSONType = (endpoint: string, options?: RequestOptions) => Promise<*>
+  declare type RequestJSONType =
+    (endpoint: string, options?: RequestOptions, omitErrorMessage?: boolean) => Promise<*>
 
   declare type UtilsType = {
     requestText: RequestTextType,
