@@ -31,9 +31,9 @@
   },
   "scripts": {
     "commit": "git-cz",
-    "prerelease:ci": "node generate-ts.js && tsc && flow check",
-    "release:ci": "standard-version",
-    "postrelease:ci": "git push --follow-tags origin release/2020.2.x && npm publish"
+    "preversion:ci": "node generate-ts.js && tsc && flow check",
+    "version:ci": "standard-version",
+    "release:ci": "git push --follow-tags origin release/2020.2.x && npm publish"
   },
   "browserslist": [
     "extends @jetbrains/browserslist-config-teamcity"
