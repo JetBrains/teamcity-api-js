@@ -1,6 +1,6 @@
 {
   "name": "@jetbrains/teamcity-api",
-  "version": "2021.1.0-alpha.2",
+  "version": "2021.1.0-eap.0",
   "description": "",
   "main": "index.js",
   "repository": {
