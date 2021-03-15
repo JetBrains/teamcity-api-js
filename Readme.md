@@ -40,3 +40,4 @@ There is a dedicated tag in YouTrack: [SakuraUI-plugin](https://youtrack.jetbrai
 Feel free to write us a line, if you have any feedback about the Plugins and this Module. 
 
 Wish you a happy coding!
+
