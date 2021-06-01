@@ -158,6 +158,7 @@ declare module '@jetbrains/teamcity-api' {
       +agentId?: ?string,
       +agentPoolId?: ?string,
       +agentTypeId?: ?string,
+      +testRunId?: ?string,
     },
   }
 
