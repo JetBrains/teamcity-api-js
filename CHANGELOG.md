@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2021.1.0-alpha.5](https://github.com/JetBrains/teamcity-api-js/compare/v2021.1.0-alpha.4...v2021.1.0-alpha.5) (2021-06-18)
+
+
+### Features
+
+* **typescript:** expose PluginClass [publish] ([dabafd4](https://github.com/JetBrains/teamcity-api-js/commit/dabafd4b99b8c88e083efa49fb7d060da530e89e))
+
 ## [2021.1.0-alpha.4](https://github.com/JetBrains/teamcity-api-js/compare/v2021.1.0-alpha.3...v2021.1.0-alpha.4) (2021-06-01)
 
 ## [2021.1.0-alpha.3](https://github.com/JetBrains/teamcity-api-js/compare/v2021.1.0-eap.1...v2021.1.0-alpha.3) (2021-06-01)
