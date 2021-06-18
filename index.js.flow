@@ -182,7 +182,7 @@ declare module '@jetbrains/teamcity-api' {
     options: PluginOptions;
 
     content: string | HTMLElement | React$ComponentType<*>;
-    container: HTMLElement;
+    container: HTMLElement | void;
 
     +mount: () => void;
     +unmount: () => void;
@@ -236,8 +236,9 @@ declare module '@jetbrains/teamcity-api/plugin-registry' {
 }
 
 declare module '@jetbrains/teamcity-api/components' {
+  import type {EntityPathProps as APIEntityPathProps} from '@jetbrains/teamcity-api'
   declare module.exports: $PropertyType<$Exports<'@jetbrains/teamcity-api'>, 'Components'>
-  declare export type EntityPathProps = EntityPathProps
+  declare export type EntityPathProps = APIEntityPathProps
 }
 
 declare module '@jetbrains/teamcity-api/utils' {

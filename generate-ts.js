@@ -25,19 +25,11 @@ const tsCode = convert(flowCode, {inlineUtilityTypes: true})
     "import {$1} from '@jetbrains/teamcity-api'\n  export default $1",
   )
   .replace(/export default ([\w-]+)Type/g, 'const $1: $1Type\n  export default $1')
+  .replace('constructor(placeId: PlaceId | Array<PlaceId>, args: PluginConstructorArguments): void\n    ', '')
   .replace(
-    'export interface PluginInterface extends PluginCallbacks {',
-    'export class PluginClass extends PluginCallbacks {\n    static placeIds: PlaceIdList',
+    'type PluginType = Class<PluginInterface> & {\n    ',
+      'type PluginType = {\n    new (placeId: PlaceId | Array<PlaceId>, args: PluginConstructorArguments): PluginInterface\n    ',
   )
-  .replace(
-    'type PluginType = Class<PluginInterface> & {\n    placeIds: PlaceIdList\n  }',
-    'type PluginType = typeof PluginClass',
-  )
-  .replace('declare interface PluginCommon', 'declare class PluginCommon')
-  .replace(
-    'export interface PluginCallbacks extends PluginCommon',
-    'declare class PluginCallbacks extends PluginCommon',
-  )
-  .replace(/PluginInterface/g, 'PluginClass')
+  .replace('declare interface PluginCommon', 'interface PluginCommon')
 
 fs.writeFileSync(path.join(__dirname, 'index.d.ts'), tsCode)
