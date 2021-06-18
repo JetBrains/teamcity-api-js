@@ -27,7 +27,7 @@ const tsCode = convert(flowCode, {inlineUtilityTypes: true})
   .replace(/export default ([\w-]+)Type/g, 'const $1: $1Type\n  export default $1')
   .replace(
     'export interface PluginInterface extends PluginCallbacks {',
-    'declare class PluginClass extends PluginCallbacks {\n    static placeIds: PlaceIdList',
+    'export class PluginClass extends PluginCallbacks {\n    static placeIds: PlaceIdList',
   )
   .replace(
     'type PluginType = Class<PluginInterface> & {\n    placeIds: PlaceIdList\n  }',
