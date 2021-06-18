@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2021.1.0-alpha.6](https://github.com/JetBrains/teamcity-api-js/compare/v2021.1.0-alpha.5...v2021.1.0-alpha.6) (2021-06-18)
+
+
+### Bug Fixes
+
+* **typescript:** use interfaces instead of classes [publish] ([ebb7e44](https://github.com/JetBrains/teamcity-api-js/commit/ebb7e44f473198954eba432ad77292834beaff39))
+
 ## [2021.1.0-alpha.5](https://github.com/JetBrains/teamcity-api-js/compare/v2021.1.0-alpha.4...v2021.1.0-alpha.5) (2021-06-18)
 
 
