@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2021.1.0-alpha.7](https://github.com/JetBrains/teamcity-api-js/compare/v2021.1.0-alpha.6...v2021.1.0-alpha.7) (2021-06-21)
+
+
+### Bug Fixes
+
+* **[publish]:** fix React.Ref usage ([8fc6fe5](https://github.com/JetBrains/teamcity-api-js/commit/8fc6fe501a6cc26c216e18781a3399b6e5cf71ea))
+
 ## [2021.1.0-alpha.6](https://github.com/JetBrains/teamcity-api-js/compare/v2021.1.0-alpha.5...v2021.1.0-alpha.6) (2021-06-18)
 
 
