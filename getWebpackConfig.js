@@ -13,7 +13,6 @@ const babelConfigExists = fs.existsSync(path.join(processPath, './babel.config.j
  * This function returns ready-to-use webpack configuration for creating frontend plugins for TeamCity
  * @param {Object} options - options for generating webpack.config.js
  * @param {boolean | undefined} options.useTypeScript - set to true if you want to write code in TypeScript
- * @param {boolean | undefined} options.useFlow - set to true if you want to write code using flow.js
  * @param {string} options.srcPath - Path to the source directory. For example: path.join(__dirname, 'src')
  * @param {string} options.outputPath - Path to write the compiled files to disk. For example: path.resolve(__dirname, '../demoPlugin-server/src/main/resources/buildServerResources')
  * @param {string} options.entry - The point or points where to start the application bundling process. For example: './src/index.ts'.
@@ -22,6 +21,10 @@ const babelConfigExists = fs.existsSync(path.join(processPath, './babel.config.j
  */
 module.exports = function getWebpackConfig(options) {
   const {useTypeScript, useFlow, srcPath, outputPath, entry, reusePackages} = options
+
+  if (useFlow) {
+    console.warn("Flow support is deprecated and will be removed soon. Use the TypeScript instead.")
+  }
 
   ringUiConfig.loaders.cssLoader.include = [...ringUiConfig.loaders.cssLoader.include, srcPath]
   if (!postcssConfigExists) {
@@ -49,12 +52,6 @@ module.exports = function getWebpackConfig(options) {
   }
   Object.assign(ringUiConfig.loaders.babelLoader, babelLoader)
 
-  ringUiConfig.loaders.svgInlineLoader.include.push(
-    require('@jetbrains/icons'),
-    require('@jetbrains/logos'),
-    srcPath
-  )
-
   const globalObj = 'window.TeamCityAPI'
   const externals = {
     react: `${globalObj}.React`,
@@ -64,7 +61,7 @@ module.exports = function getWebpackConfig(options) {
     //TODO: reuse packages not from TeamCityAPI
   }
 
-  return (env = {}, argv = {}) => ({
+  return (env = {}) => ({
     mode: env.production ? 'production' : 'development',
     bail: !env.devserver,
     entry,
@@ -99,14 +96,40 @@ module.exports = function getWebpackConfig(options) {
           exclude: [/node_modules/],
           use: [babelLoader],
         },
+        {
+          test: /\.svg$/,
+          include: [
+            require('@jetbrains/icons'),
+            require('@jetbrains/logos'),
+            srcPath
+          ],
+          use: [
+            babelLoader,
+            {
+              loader: '@svgr/webpack',
+              options: {
+                babel: false,
+                svgoConfig: {
+                  plugins: [{prefixIds: {prefixClassNames: false}}, {removeViewBox: false}],
+                },
+                template: ({template}, opts, {imports, componentName, props, jsx}) =>
+                    template.ast`${imports}
+export default React.memo(function ${componentName}(${props}) {
+  return ${jsx}
+})
+`,
+              },
+            },
+          ],
+        }
       ].filter(Boolean),
     },
     devServer: {
       hot: true,
       contentBase: outputPath,
       filename: 'bundle.js',
-      port: argv.port,
-      host: argv.host,
+      port: env.port,
+      host: env.host,
       watchOptions: {
         poll: 5000,
       },
