@@ -9,7 +9,7 @@ declare module '@jetbrains/teamcity-api' {
     unspecified?: boolean
   }
 
-  type AllBuildsProps = {
+  export type AllBuildsProps = {
     readonly locatorHelpUrl?: string
     readonly withProjectBuildtypeFilter?: boolean
     readonly pageSize?: number
@@ -17,19 +17,76 @@ declare module '@jetbrains/teamcity-api' {
     readonly branch?: BranchType | null | undefined
   }
 
+  export type BuildNumberProps = {
+    buildId: number | null | undefined
+    className?: string
+    number?: string
+    withLink?: boolean
+    hideStar?: boolean
+  }
+
+  export type ContentPanelProps = {
+    readonly className?: string
+    readonly headingClassName?: string
+    readonly subheadingClassName?: string
+    readonly contentClassName?: string
+    readonly panelType: string
+    readonly heading: string | React.ReactNode
+    readonly subheading?: string | React.ReactNode
+    readonly href?: string
+    readonly headerSnippet?: React.ReactNode
+    readonly content: React.ReactNode
+    readonly expandable?: boolean
+    readonly withBorder?: boolean
+    readonly expandedByDefault?: boolean
+  }
+
+  export type EntityPathProps = {
+    readonly className?: string
+    readonly linkClassName?: string
+    readonly withCollapsing?: boolean
+    readonly withIcons?: boolean
+    readonly withLeafIcon?: boolean
+    readonly withLeafStatusIcon?: boolean
+    readonly buildId?: string
+    readonly hideFilterPath?: boolean
+    readonly hideIfSameAsFilter?: boolean
+    readonly projectId?: string
+    readonly buildTypeId?: string
+  }
+
+  export type RouterButtonProps = {
+    readonly to: string
+    readonly className?: string
+    readonly children?: React.ReactNode
+  }
+
+  export type RouterLinkProps = RouterButtonProps & {
+    readonly title?: string
+    readonly innerClassName?: string
+    readonly innerRef?: React.Ref<HTMLAnchorElement>
+  }
+
   type RenderType = <P extends {} | null | undefined>(elementOrId: HTMLElement | string, Type: React.ComponentType<P>, props: P) => void
 
-  type RequestTextType = (endpoint: string, options?: RequestInit) => Promise<string>
+  type RequestTextType = (endpoint: string, options?: RequestInit, omitErrorMessage?: boolean) => Promise<string>
 
-  type RequestJSONType = (endpoint: string, options?: RequestInit) => Promise<any>
+  type RequestJSONType = (endpoint: string, options?: RequestInit, omitErrorMessage?: boolean) => Promise<any>
 
   type UtilsType = {
     requestText: RequestTextType
     requestJSON: RequestJSONType
+    isSakuraUI: () => boolean
+    resolveRelativeURL: (relativePath: string, params?: {}, hash?: string) => string
   }
 
   type ComponentsType = {
     readonly AllBuilds: React.ComponentType<AllBuildsProps>
+    readonly BuildNumber: React.ComponentType<BuildNumberProps>
+    readonly ContentPanel: React.ComponentType<ContentPanelProps>
+    readonly EntityPath: React.ComponentType<EntityPathProps>
+    readonly RouterLink: React.ComponentType<RouterLinkProps>
+    readonly RouterButton: React.ComponentType<RouterButtonProps>
   }
 
   export type PlaceIdList = {
@@ -53,13 +110,13 @@ declare module '@jetbrains/teamcity-api' {
     SAKURA_TEST_DETAILS_ACTIONS: 'SAKURA_TEST_DETAILS_ACTIONS'
 
     // Classic UI PlaceID Containers
-    HEADER_RIGHT: 'HEADER_RIGHT'
-    BEFORE_CONTENT: 'BEFORE_CONTENT'
-    PROJECT_FRAGMENT: 'PROJECT_FRAGMENT'
-    PROJECT_STATS_FRAGMENT: 'PROJECT_STATS_FRAGMENT'
-    BUILD_CONF_STATISTICS_FRAGMENT: 'BUILD_CONF_STATISTICS_FRAGMENT'
-    BUILD_RESULTS_FRAGMENT: 'BUILD_RESULTS_FRAGMENT'
-    BUILD_RESULTS_BUILD_PROBLEM: 'BUILD_RESULTS_BUILD_PROBLEM'
+    HEADER_RIGHT: "HEADER_RIGHT"
+    BEFORE_CONTENT: "BEFORE_CONTENT"
+    PROJECT_FRAGMENT: "PROJECT_FRAGMENT"
+    PROJECT_STATS_FRAGMENT: "PROJECT_STATS_FRAGMENT"
+    BUILD_CONF_STATISTICS_FRAGMENT: "BUILD_CONF_STATISTICS_FRAGMENT"
+    BUILD_RESULTS_FRAGMENT: "BUILD_RESULTS_FRAGMENT"
+    BUILD_RESULTS_BUILD_PROBLEM: "BUILD_RESULTS_BUILD_PROBLEM"
   }
 
   export type PlaceId = keyof PlaceIdList
@@ -94,10 +151,11 @@ declare module '@jetbrains/teamcity-api' {
       readonly agentId?: string | null | undefined
       readonly agentPoolId?: string | null | undefined
       readonly agentTypeId?: string | null | undefined
+      readonly testRunId?: string | null | undefined
     }
   }
 
-  declare class PluginCommon {
+  interface PluginCommon {
     debug: boolean
     name: string
     placeId: PlaceId
@@ -105,7 +163,7 @@ declare module '@jetbrains/teamcity-api' {
     content: string | HTMLElement | React.ComponentType<any>
   }
 
-  declare class PluginCallbacks extends PluginCommon {
+  export interface PluginCallbacks extends PluginCommon {
     readonly onCreate: (callback: () => unknown) => () => void
     readonly onMount: (callback: PluginCallback) => UnsubscribeFromLifecycle
     readonly onContextUpdate: (callback: PluginCallback) => UnsubscribeFromLifecycle
@@ -113,25 +171,26 @@ declare module '@jetbrains/teamcity-api' {
     readonly onDelete: (callback: PluginCallback) => UnsubscribeFromLifecycle
   }
 
-  declare class PluginClass extends PluginCallbacks {
-    static placeIds: PlaceIdList
+  export interface PluginInterface extends PluginCallbacks {
     options: PluginOptions
     content: string | HTMLElement | React.ComponentType<any>
-    container: HTMLElement
+    container: HTMLElement | void
     readonly mount: () => void
     readonly unmount: () => void
     readonly updateContext: (context: PluginContext) => void
-    constructor(placeId: PlaceId, args: PluginConstructorArguments): void
     replaceContent(content: string | HTMLElement | React.ComponentType<any>): void
     registerEventHandler(element: HTMLElement, event: string, callback: () => unknown): void
   }
 
-  type PluginType = typeof PluginClass
+  type PluginType = {
+    new (placeId: PlaceId | Array<PlaceId>, args: PluginConstructorArguments): PluginInterface
+    placeIds: PlaceIdList
+  }
 
   export interface PluginRegistry {
-    searchByPlaceId(placeId: PlaceId, pluginName: string): (PluginClass | null | undefined) | Array<PluginClass>
-    findUniquePlugin(placeId: PlaceId, pluginName: string): PluginClass | null | undefined
-    search(pluginName: string): Array<PluginClass>
+    searchByPlaceId(placeId: PlaceId, pluginName: string): (PluginInterface | null | undefined) | Array<PluginInterface>
+    findUniquePlugin(placeId: PlaceId, pluginName: string): PluginInterface | null | undefined
+    search(pluginName: string): Array<PluginInterface>
   }
 
   export type TeamCityAPIType = {
@@ -167,8 +226,10 @@ declare module '@jetbrains/teamcity-api/plugin-registry' {
 }
 
 declare module '@jetbrains/teamcity-api/components' {
+  import { EntityPathProps as APIEntityPathProps } from "@jetbrains/teamcity-api"
   import {Components} from '@jetbrains/teamcity-api'
   export default Components
+  export type EntityPathProps = APIEntityPathProps
 }
 
 declare module '@jetbrains/teamcity-api/utils' {
