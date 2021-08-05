@@ -53,6 +53,7 @@ declare module '@jetbrains/teamcity-api' {
     SAKURA_AGENT_BEFORE_CONTENT: "SAKURA_AGENT_BEFORE_CONTENT"
     SAKURA_AGENT_POOL_BEFORE_CONTENT: "SAKURA_AGENT_POOL_BEFORE_CONTENT"
     SAKURA_AGENT_CLOUD_IMAGE_BEFORE_CONTENT: "SAKURA_AGENT_CLOUD_IMAGE_BEFORE_CONTENT"
+    SAKURA_GUIDES_OVERVIEW: 'SAKURA_GUIDES_OVERVIEW'
   }
 
   export type PlaceId = keyof PlaceIdList
@@ -141,9 +142,9 @@ declare module '@jetbrains/teamcity-api' {
   export var Components: ComponentsType
   export var Plugin: PluginType
   import * as React from 'react'
-  export {React}  
+  export {React}
   import * as ReactDOM from 'react-dom'
-  export {ReactDOM}  
+  export {ReactDOM}
 
   const TeamCityAPI: TeamCityAPIType
   export default TeamCityAPI
