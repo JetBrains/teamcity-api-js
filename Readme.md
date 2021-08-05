@@ -1,8 +1,8 @@
 # TeamCity UI Plugin definitions module
 
-This module contains typings for the updated TeamCity UI Plugin development guide. It provides typings for both Flow JS and TypeScript and should be used as a helper in time you develop the Plugin for the TeamCity. 
+This module contains typings for the updated TeamCity UI Plugin development guide. It provides typings for TypeScript and should be used as a helper in time you develop the Plugin for the TeamCity. 
 
-**Warning! This module is still under active development. Some APIs will be changed by the time of TeamCity 2020.2 release.** 
+**Warning! This module is still under active development.** 
  
 There are some useful resources for this repository:
 * [JetBrains / TeamCity Blog post about the UI Plugins](https://blog.jetbrains.com/teamcity/2020/09/teamcity-2020-2-updated-plugin-development)

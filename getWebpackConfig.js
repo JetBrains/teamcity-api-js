@@ -20,7 +20,7 @@ const babelConfigExists = fs.existsSync(path.join(processPath, './babel.config.j
  * @returns {Function} webpack configuration
  */
 module.exports = function getWebpackConfig(options) {
-  const {useTypeScript, useFlow, srcPath, outputPath, entry, reusePackages} = options
+  const {useTypeScript, srcPath, outputPath, entry, reusePackages} = options
 
   if (useFlow) {
     console.warn("Flow support is deprecated and will be removed soon. Use the TypeScript instead.")
@@ -46,8 +46,8 @@ module.exports = function getWebpackConfig(options) {
       cacheDirectory: true,
       babelrc: false,
       extends: babelConfigExists
-        ? './babel.config.js'
-        : path.join(__dirname, useFlow ? './flow.babel.config.js' : './babel.config.js'),
+          ? './babel.config.js'
+          : path.join(__dirname, './babel.config.js'),
     },
   }
   Object.assign(ringUiConfig.loaders.babelLoader, babelLoader)
@@ -70,10 +70,10 @@ module.exports = function getWebpackConfig(options) {
       filename: 'bundle.js',
     },
     resolve: useTypeScript
-      ? {
+        ? {
           extensions: ['.ts', '.tsx', '.js', '.css'],
         }
-      : undefined,
+        : undefined,
     module: {
       rules: [
         ...ringUiConfig.config.module.rules,
@@ -138,11 +138,11 @@ export default React.memo(function ${componentName}(${props}) {
     plugins: [
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/), // Reduce bundle size
       env.analyze &&
-        new BundleAnalyzerPlugin({
-          analyzerMode: 'static',
-          reportFilename: 'bundle-report.html',
-          openAnalyzer: false,
-        }),
+      new BundleAnalyzerPlugin({
+        analyzerMode: 'static',
+        reportFilename: 'bundle-report.html',
+        openAnalyzer: false,
+      }),
     ].filter(Boolean),
   })
 }

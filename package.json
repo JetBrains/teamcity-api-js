@@ -1,6 +1,6 @@
 {
   "name": "@jetbrains/teamcity-api",
-  "version": "2021.1.0-alpha.7",
+  "version": "2021.2.1-alpha.0",
   "description": "",
   "main": "index.js",
   "repository": {
@@ -19,19 +19,16 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@jetbrains/ring-ui": "3.1.9",
-    "@khanacademy/flow-to-ts": "0.1.9",
-    "commitizen": "4.2.3",
+    "@jetbrains/ring-ui": "4.0.26",
+    "commitizen": "4.2.4",
     "cz-conventional-changelog": "3.3.0",
-    "flow-bin": "0.142.0",
-    "standard-version": "9.1.0",
-    "typescript": "4.1.5",
-    "webpack": "4.46.0",
-    "webpack-bundle-analyzer": "4.4.0"
+    "standard-version": "9.3.1",
+    "typescript": "4.3.5",
+    "webpack": "5.48.0",
+    "webpack-bundle-analyzer": "4.4.2"
   },
   "scripts": {
     "commit": "git-cz",
-    "preversion:ci": "node generate-ts.js && tsc && flow check",
     "version:ci": "standard-version",
     "release:ci": "git push --follow-tags origin master && npm publish"
   },
