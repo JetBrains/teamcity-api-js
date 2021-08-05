@@ -13,7 +13,6 @@ const babelConfigExists = fs.existsSync(path.join(processPath, './babel.config.j
  * This function returns ready-to-use webpack configuration for creating frontend plugins for TeamCity
  * @param {Object} options - options for generating webpack.config.js
  * @param {boolean | undefined} options.useTypeScript - set to true if you want to write code in TypeScript
- * @param {boolean | undefined} options.useFlow - set to true if you want to write code using flow.js
  * @param {string} options.srcPath - Path to the source directory. For example: path.join(__dirname, 'src')
  * @param {string} options.outputPath - Path to write the compiled files to disk. For example: path.resolve(__dirname, '../demoPlugin-server/src/main/resources/buildServerResources')
  * @param {string} options.entry - The point or points where to start the application bundling process. For example: './src/index.ts'.
@@ -21,7 +20,7 @@ const babelConfigExists = fs.existsSync(path.join(processPath, './babel.config.j
  * @returns {Function} webpack configuration
  */
 module.exports = function getWebpackConfig(options) {
-  const {useTypeScript, useFlow, srcPath, outputPath, entry, reusePackages} = options
+  const {useTypeScript, srcPath, outputPath, entry, reusePackages} = options
 
   ringUiConfig.loaders.cssLoader.include = [...ringUiConfig.loaders.cssLoader.include, srcPath]
   if (!postcssConfigExists) {
@@ -43,17 +42,11 @@ module.exports = function getWebpackConfig(options) {
       cacheDirectory: true,
       babelrc: false,
       extends: babelConfigExists
-        ? './babel.config.js'
-        : path.join(__dirname, useFlow ? './flow.babel.config.js' : './babel.config.js'),
+          ? './babel.config.js'
+          : path.join(__dirname, './babel.config.js'),
     },
   }
   Object.assign(ringUiConfig.loaders.babelLoader, babelLoader)
-
-  ringUiConfig.loaders.svgInlineLoader.include.push(
-    require('@jetbrains/icons'),
-    require('@jetbrains/logos'),
-    srcPath
-  )
 
   const globalObj = 'window.TeamCityAPI'
   const externals = {
@@ -64,7 +57,7 @@ module.exports = function getWebpackConfig(options) {
     //TODO: reuse packages not from TeamCityAPI
   }
 
-  return (env = {}, argv = {}) => ({
+  return (env = {}) => ({
     mode: env.production ? 'production' : 'development',
     bail: !env.devserver,
     entry,
@@ -73,10 +66,10 @@ module.exports = function getWebpackConfig(options) {
       filename: 'bundle.js',
     },
     resolve: useTypeScript
-      ? {
+        ? {
           extensions: ['.ts', '.tsx', '.js', '.css'],
         }
-      : undefined,
+        : undefined,
     module: {
       rules: [
         ...ringUiConfig.config.module.rules,
@@ -99,14 +92,40 @@ module.exports = function getWebpackConfig(options) {
           exclude: [/node_modules/],
           use: [babelLoader],
         },
+        {
+          test: /\.svg$/,
+          include: [
+            require('@jetbrains/icons'),
+            require('@jetbrains/logos'),
+            srcPath
+          ],
+          use: [
+            babelLoader,
+            {
+              loader: '@svgr/webpack',
+              options: {
+                babel: false,
+                svgoConfig: {
+                  plugins: [{prefixIds: {prefixClassNames: false}}, {removeViewBox: false}],
+                },
+                template: ({template}, opts, {imports, componentName, props, jsx}) =>
+                    template.ast`${imports}
+export default React.memo(function ${componentName}(${props}) {
+  return ${jsx}
+})
+`,
+              },
+            },
+          ],
+        }
       ].filter(Boolean),
     },
     devServer: {
       hot: true,
       contentBase: outputPath,
       filename: 'bundle.js',
-      port: argv.port,
-      host: argv.host,
+      port: env.port,
+      host: env.host,
       watchOptions: {
         poll: 5000,
       },
@@ -115,11 +134,11 @@ module.exports = function getWebpackConfig(options) {
     plugins: [
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/), // Reduce bundle size
       env.analyze &&
-        new BundleAnalyzerPlugin({
-          analyzerMode: 'static',
-          reportFilename: 'bundle-report.html',
-          openAnalyzer: false,
-        }),
+      new BundleAnalyzerPlugin({
+        analyzerMode: 'static',
+        reportFilename: 'bundle-report.html',
+        openAnalyzer: false,
+      }),
     ].filter(Boolean),
   })
 }
