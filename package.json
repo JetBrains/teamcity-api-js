@@ -30,7 +30,7 @@
   "scripts": {
     "commit": "git-cz",
     "version:ci": "standard-version",
-    "release:ci": "git push --follow-tags origin release/2021.1.x && npm publish"
+    "release:ci": "git push --follow-tags origin release/2021.2.x && npm publish"
   },
   "browserslist": [
     "extends @jetbrains/browserslist-config-teamcity"
