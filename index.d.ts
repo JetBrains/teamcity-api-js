@@ -1,71 +1,13 @@
 declare module '@jetbrains/teamcity-api' {
-  type BranchType = {
-    name: string
-    internalName?: string
-    groupFlag?: boolean
-    default?: boolean
-    active?: boolean
-    wildcard?: boolean
-    unspecified?: boolean
-  }
 
-  export type AllBuildsProps = {
-    readonly locatorHelpUrl?: string
-    readonly withProjectBuildtypeFilter?: boolean
-    readonly pageSize?: number
-    readonly skipQuerySync?: boolean
-    readonly branch?: BranchType | null | undefined
-  }
-
-  export type BuildNumberProps = {
-    buildId: number | null | undefined
-    className?: string
-    number?: string
-    withLink?: boolean
-    hideStar?: boolean
-  }
-
-  export type ContentPanelProps = {
-    readonly className?: string
-    readonly headingClassName?: string
-    readonly subheadingClassName?: string
-    readonly contentClassName?: string
-    readonly panelType: string
-    readonly heading: string | React.ReactNode
-    readonly subheading?: string | React.ReactNode
-    readonly href?: string
-    readonly headerSnippet?: React.ReactNode
-    readonly content: React.ReactNode
-    readonly expandable?: boolean
-    readonly withBorder?: boolean
-    readonly expandedByDefault?: boolean
-  }
-
-  export type EntityPathProps = {
-    readonly className?: string
-    readonly linkClassName?: string
-    readonly withCollapsing?: boolean
-    readonly withIcons?: boolean
-    readonly withLeafIcon?: boolean
-    readonly withLeafStatusIcon?: boolean
-    readonly buildId?: string
-    readonly hideFilterPath?: boolean
-    readonly hideIfSameAsFilter?: boolean
-    readonly projectId?: string
-    readonly buildTypeId?: string
-  }
-
-  export type RouterButtonProps = {
-    readonly to: string
-    readonly className?: string
-    readonly children?: React.ReactNode
-  }
-
-  export type RouterLinkProps = RouterButtonProps & {
-    readonly title?: string
-    readonly innerClassName?: string
-    readonly innerRef?: React.Ref<HTMLAnchorElement>
-  }
+  export type {
+    AllBuildsProps,
+    BuildNumberProps,
+    ContentPanelProps,
+    EntityPathProps,
+    RouterLinkProps,
+    RouterButtonProps,
+  } from "@jetbrains/teamcity-api/types"
 
   type RenderType = <P extends {} | null | undefined>(elementOrId: HTMLElement | string, Type: React.ComponentType<P>, props: P) => void
 
@@ -226,10 +168,8 @@ declare module '@jetbrains/teamcity-api/plugin-registry' {
 }
 
 declare module '@jetbrains/teamcity-api/components' {
-  import { EntityPathProps as APIEntityPathProps } from "@jetbrains/teamcity-api"
   import {Components} from '@jetbrains/teamcity-api'
   export default Components
-  export type EntityPathProps = APIEntityPathProps
 }
 
 declare module '@jetbrains/teamcity-api/utils' {
