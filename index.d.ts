@@ -1,7 +1,6 @@
 declare module '@jetbrains/teamcity-api' {
 
   export type {
-    AllBuildsProps,
     BuildNumberProps,
     ContentPanelProps,
     EntityPathProps,
@@ -23,7 +22,6 @@ declare module '@jetbrains/teamcity-api' {
   }
 
   type ComponentsType = {
-    readonly AllBuilds: React.ComponentType<AllBuildsProps>
     readonly BuildNumber: React.ComponentType<BuildNumberProps>
     readonly ContentPanel: React.ComponentType<ContentPanelProps>
     readonly EntityPath: React.ComponentType<EntityPathProps>
