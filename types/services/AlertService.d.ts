@@ -1,4 +1,4 @@
-type AlertKey = string
+export type AlertKey = string
 
 export enum Type {
   ERROR = 'error',
@@ -9,7 +9,7 @@ export enum Type {
 }
 export type AlertType = Type
 
-type Alert = {
+export type Alert = {
   key: string
   message: string
   timeout?: number

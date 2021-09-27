@@ -19,6 +19,12 @@ declare module '@jetbrains/teamcity-api' {
     RequestJSONType,
   } from '@jetbrains/teamcity-api/types/services/REST'
 
+  import type {
+    Alert,
+    AlertKey,
+    AlertType,
+  } from '@jetbrains/teamcity-api/types/services/AlertService'
+
   export type {
     BuildNumberProps,
     ContentPanelProps,
@@ -35,6 +41,7 @@ declare module '@jetbrains/teamcity-api' {
     requestJSON: RequestJSONType
     isSakuraUI: () => boolean
     resolveRelativeURL: (relativePath: string, params?: {}, hash?: string) => string
+    addMarkdownAlert: (source: string, type?: AlertType, timeout?: number | null, options?: Partial<Alert>) => AlertKey
   }
 
   type ComponentsType = {
