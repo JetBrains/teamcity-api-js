@@ -20,7 +20,11 @@ const babelConfigExists = fs.existsSync(path.join(processPath, './babel.config.j
  * @returns {Function} webpack configuration
  */
 module.exports = function getWebpackConfig(options) {
-  const {useTypeScript, srcPath, outputPath, entry, reusePackages} = options
+  const {useTypeScript, useFlow, srcPath, outputPath, entry, reusePackages} = options
+
+  if (useFlow) {
+    console.warn("Flow support is deprecated and will be removed soon. Use the TypeScript instead.")
+  }
 
   ringUiConfig.loaders.cssLoader.include = [...ringUiConfig.loaders.cssLoader.include, srcPath]
   if (!postcssConfigExists) {
