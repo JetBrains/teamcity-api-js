@@ -136,7 +136,10 @@ export default React.memo(function ${componentName}(${props}) {
     },
     externals,
     plugins: [
-      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/), // Reduce bundle size
+      new webpack.IgnorePlugin({
+        resourceRegExp: /^\.\/locale$/,
+        contextRegExp: /moment$/
+      }),
       env.analyze &&
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',
