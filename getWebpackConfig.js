@@ -82,7 +82,7 @@ module.exports = function getWebpackConfig(options) {
           exclude: /node_modules/,
           use: [
             {
-              loader: 'ts-loader',
+              loader: 'babel-loader',
               options: !tsConfigExists  ? {
                 context: srcPath,
                 configFile: path.join(__dirname, './plugin.tsconfig.json')

@@ -11,6 +11,7 @@ module.exports = {
         targets: browserslist,
       },
     ],
+    '@babel/preset-typescript',
     '@babel/preset-react',
   ],
   plugins: [
