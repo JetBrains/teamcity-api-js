@@ -13,8 +13,8 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "commitizen": "^4.2.1",
-    "standard-version": "^9.0.0"
+    "commitizen": "4.2.4",
+    "standard-version": "9.3.2"
   },
   "scripts": {
     "commit": "git-cz",
