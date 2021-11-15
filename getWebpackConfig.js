@@ -122,13 +122,8 @@ export default React.memo(function ${componentName}(${props}) {
     },
     devServer: {
       hot: true,
-      contentBase: outputPath,
-      filename: 'bundle.js',
       port: env.port,
       host: env.host,
-      watchOptions: {
-        poll: 5000,
-      },
     },
     externals,
     plugins: [
