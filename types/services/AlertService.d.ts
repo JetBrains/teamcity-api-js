@@ -33,7 +33,7 @@ export type AlertServiceType = {
   containerElement: HTMLElement
   renderAlertContainer(alerts: readonly Alert[]): React.ReactElement
   renderAlerts(): void
-  findSameAlert(message: string, type: string): Alert[]
+  findSameAlert(message: string, type: string): Alert
   startAlertClosing(alert: Alert): void
   remove(key: string): void
   removeWithoutAnimation(key: string): void
