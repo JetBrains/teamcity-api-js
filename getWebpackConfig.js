@@ -80,7 +80,6 @@ module.exports = function getWebpackConfig(options) {
             {
               loader: 'babel-loader',
               options: !tsConfigExists  ? {
-                context: srcPath,
                 configFile: path.join(__dirname, './plugin.tsconfig.json')
               } : undefined,
             },
@@ -106,10 +105,18 @@ module.exports = function getWebpackConfig(options) {
               options: {
                 babel: false,
                 svgoConfig: {
-                  plugins: [{prefixIds: {prefixClassNames: false}}, {removeViewBox: false}],
+                  plugins: [
+                    {
+                      name: 'preset-default',
+                      params: {
+                        overrides: {removeViewBox: false},
+                      },
+                    },
+                    {name: 'prefixIds', params: {prefixClassNames: false}},
+                  ],
                 },
-                template: ({template}, opts, {imports, componentName, props, jsx}) =>
-                    template.ast`${imports}
+                template: ({imports, componentName, props, jsx}, {tpl}) =>
+                  tpl`${imports}
 export default React.memo(function ${componentName}(${props}) {
   return ${jsx}
 })
