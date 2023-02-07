@@ -88,6 +88,7 @@ declare module '@jetbrains/teamcity-api' {
     BUILD_CONF_STATISTICS_FRAGMENT: "BUILD_CONF_STATISTICS_FRAGMENT"
     BUILD_RESULTS_FRAGMENT: "BUILD_RESULTS_FRAGMENT"
     BUILD_RESULTS_BUILD_PROBLEM: "BUILD_RESULTS_BUILD_PROBLEM"
+    TAB_PLUGIN_CONTAINER: "TAB_PLUGIN_CONTAINER"
   }
 
   export type PlaceId = keyof PlaceIdList
@@ -158,8 +159,13 @@ declare module '@jetbrains/teamcity-api' {
     placeIds: PlaceIdList
   }
 
+  type TabPluginType = {
+    new (args: PluginConstructorArguments): PluginInterface
+    placeIds: PlaceIdList
+  }
+
   export interface PluginRegistry {
-    searchByPlaceId(placeId: PlaceId, pluginName: string): (PluginInterface | null | undefined) | Array<PluginInterface>
+    searchByPlaceId(placeId: PlaceId, pluginName?: string): (PluginInterface | null | undefined) | Array<PluginInterface>
     findUniquePlugin(placeId: PlaceId, pluginName: string): PluginInterface | null | undefined
     search(pluginName: string): Array<PluginInterface>
   }
@@ -170,6 +176,7 @@ declare module '@jetbrains/teamcity-api' {
     Services: ServicesType
     utils: UtilsType
     Plugin: PluginType
+    TabPlugin: TabPluginType
     pluginRegistry: PluginRegistry
   }
 
@@ -179,6 +186,7 @@ declare module '@jetbrains/teamcity-api' {
   export var Services: ServicesType
   export var Components: ComponentsType
   export var Plugin: PluginType
+  export var TabPlugin: TabPluginType
   import * as React from 'react'
   export {React}
   import * as ReactDOM from 'react-dom'
@@ -191,6 +199,11 @@ declare module '@jetbrains/teamcity-api' {
 declare module '@jetbrains/teamcity-api/plugin' {
   import {Plugin} from '@jetbrains/teamcity-api'
   export default Plugin
+}
+
+declare module '@jetbrains/teamcity-api/tab-plugin' {
+  import {TabPlugin} from '@jetbrains/teamcity-api'
+  export default TabPlugin
 }
 
 declare module '@jetbrains/teamcity-api/plugin-registry' {
