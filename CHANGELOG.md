@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2023.3.1-alpha.3](https://github.com/JetBrains/teamcity-api-js/compare/v2023.3.1-alpha.2...v2023.3.1-alpha.3) (2023-04-18)
+
 ### [2023.3.1-alpha.2](https://github.com/JetBrains/teamcity-api-js/compare/v2023.3.1-alpha.1...v2023.3.1-alpha.2) (2023-04-04)
 
 ### [2023.3.1-alpha.1](https://github.com/JetBrains/teamcity-api-js/compare/v2021.2.0-alpha.10...v2023.3.1-alpha.1) (2023-02-07)
