@@ -1,1 +1,1 @@
-module.exports = window.TeamcityAPI.TabPlugin
+module.exports = window.TeamCityAPI.TabPlugin
