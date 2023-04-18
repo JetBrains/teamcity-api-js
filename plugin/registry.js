@@ -1,1 +1,1 @@
-module.exports = window.TeamcityAPI.pluginRegistry
+module.exports = window.TeamCityAPI.pluginRegistry
