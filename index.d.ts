@@ -192,6 +192,8 @@ declare module '@jetbrains/teamcity-api' {
   export {React}
   import * as ReactDOM from 'react-dom'
   export {ReactDOM}
+  import * as ReactDOMClient from 'react-dom/client'
+  export {ReactDOMClient}
 
   const TeamCityAPI: TeamCityAPIType
   export default TeamCityAPI
@@ -268,5 +270,10 @@ declare module '@jetbrains/teamcity-api/react' {
 
 declare module '@jetbrains/teamcity-api/react-dom' {
   import * as module from 'react-dom'
+  export default module
+}
+
+declare module '@jetbrains/teamcity-api/react-dom/client' {
+  import * as module from 'react-dom/client'
   export default module
 }
