@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2023.5.0-alpha.0](https://github.com/JetBrains/teamcity-api-js/compare/v2023.4.0-alpha.0...v2023.5.0-alpha.0) (2023-05-10)
+
+
+### Features
+
+* **components:** added typings for Button and IconButton components ([afa608f](https://github.com/JetBrains/teamcity-api-js/commit/afa608f17bb34e1ac812a99306087d3e417c471d))
+
 ## [2023.4.0-alpha.0](https://github.com/JetBrains/teamcity-api-js/compare/v2023.3.1-alpha.3...v2023.4.0-alpha.0) (2023-05-10)
 
 
