@@ -1,6 +1,6 @@
 {
   "name": "@jetbrains/teamcity-api",
-  "version": "2023.4.0-alpha.0",
+  "version": "2023.4.0",
   "description": "",
   "main": "index.js",
   "repository": {
