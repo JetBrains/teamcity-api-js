@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2023.4.0-alpha.0](https://github.com/JetBrains/teamcity-api-js/compare/v2023.3.1-alpha.3...v2023.4.0-alpha.0) (2023-05-10)
+
+
+### Features
+
+* **components:** added typings for Button and IconButton components and added SAKURA_AGENT_ACTIONS placeId ([3e5d9f7](https://github.com/JetBrains/teamcity-api-js/commit/3e5d9f7f9f12ac160f4b7b8e65b76ed8a70a099f))
+
 ### [2023.3.1-alpha.3](https://github.com/JetBrains/teamcity-api-js/compare/v2023.3.1-alpha.2...v2023.3.1-alpha.3) (2023-04-18)
 
 ### [2023.3.1-alpha.2](https://github.com/JetBrains/teamcity-api-js/compare/v2023.3.1-alpha.1...v2023.3.1-alpha.2) (2023-04-04)
