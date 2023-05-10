@@ -1,5 +1,7 @@
 declare module '@jetbrains/teamcity-api' {
   import type {
+    ButtonType,
+    IconButtonType,
     BuildNumberType,
     ContentPanelType,
     EntityPathType,
@@ -26,6 +28,7 @@ declare module '@jetbrains/teamcity-api' {
   } from '@jetbrains/teamcity-api/types/services/AlertService'
 
   export type {
+    ButtonProps,
     BuildNumberProps,
     ContentPanelProps,
     EntityPathProps,
@@ -45,6 +48,8 @@ declare module '@jetbrains/teamcity-api' {
   }
 
   type ComponentsType = {
+    readonly Button: ButtonType
+    readonly IconButton: IconButtonType
     readonly BuildNumber: BuildNumberType
     readonly ContentPanel: ContentPanelType
     readonly EntityPath: EntityPathType
@@ -79,6 +84,7 @@ declare module '@jetbrains/teamcity-api' {
     SAKURA_QUEUE_ACTIONS: 'SAKURA_QUEUE_ACTIONS'
     SAKURA_TEST_DETAILS_ACTIONS: 'SAKURA_TEST_DETAILS_ACTIONS'
     SAKURA_AGENTS_TOOLBAR: 'SAKURA_AGENTS_TOOLBAR'
+    SAKURA_AGENT_ACTIONS: 'SAKURA_AGENT_ACTIONS'
     SAKURA_AFTER_AGENT_INFO: 'SAKURA_AFTER_AGENT_INFO'
 
     // Classic UI PlaceID Containers
