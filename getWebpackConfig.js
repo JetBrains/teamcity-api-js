@@ -16,28 +16,58 @@ const babelConfigExists = fs.existsSync(path.join(processPath, './babel.config.j
  * @param {string} options.srcPath - Path to the source directory. For example: path.join(__dirname, 'src')
  * @param {string} options.outputPath - Path to write the compiled files to disk. For example: path.resolve(__dirname, '../demoPlugin-server/src/main/resources/buildServerResources')
  * @param {string} options.entry - The point or points where to start the application bundling process. For example: './src/index.ts'.
+ * @param {string | undefined} options.cssPrefix - This prefix will be added to the beginning of every css class to avoid conflicts with other plugins.
  * @returns {Function} webpack configuration
  */
 module.exports = function getWebpackConfig(options) {
   const {useTypeScript, useFlow, srcPath, outputPath, entry} = options
 
   if (useFlow) {
-    console.warn("Flow support is deprecated and will be removed soon. Use the TypeScript instead.")
+    printWarning("Flow support is deprecated and will be removed soon. Use the TypeScript instead.")
+  }
+
+  let packageName
+  if (options.cssPrefix == null || options.cssPrefix.length === 0) {
+    let packageJSON
+    try {
+      const file = fs.readFileSync(path.join(processPath, './package.json'), {encoding: 'UTF-8'})
+      packageJSON = JSON.parse(file)
+    } catch (e) {
+      printWarning(
+        "The package.json file was not found. Please pass the 'cssPrefix' option to the getWebpackConfig() function."
+      )
+    }
+    if (packageJSON != null) {
+      if (packageJSON.name != null) {
+        packageName = packageJSON.name
+      } else {
+        printWarning(
+          "The 'name' property in package.json was not found. " +
+          "Please either specify it or pass the 'cssPrefix' option to the getWebpackConfig() function."
+        )
+      }
+    }
   }
 
   ringUiConfig.loaders.cssLoader.include = [...ringUiConfig.loaders.cssLoader.include, srcPath]
-  if (!postcssConfigExists) {
-    ringUiConfig.loaders.cssLoader.use.forEach(item => {
-      if (item.loader != null && item.loader.includes('postcss-loader')) {
+  ringUiConfig.loaders.cssLoader.use.forEach(item => {
+    if (item.loader != null) {
+      if (!postcssConfigExists && item.loader.includes('/postcss-loader')) {
         item.options = {
           ...item.options,
           postcssOptions: {
             config: path.join(__dirname, './postcss.config.js'),
           },
         }
+      } else if (item.loader.includes('/css-loader') && item.options != null && item.options.modules != null) {
+        item.options.modules.localIdentName =
+          `${options.cssPrefix != null ? `${options.cssPrefix}_`: ''}[local]_[hash:base64:4]`
+        if (packageName != null) {
+          item.options.modules.localIdentHashSalt = packageName
+        }
       }
-    })
-  }
+    }
+  })
 
   const babelLoader = {
     loader: 'babel-loader',
@@ -146,4 +176,8 @@ export default React.memo(function ${componentName}(${props}) {
       }),
     ].filter(Boolean),
   })
+}
+
+function printWarning(message) {
+  console.warn(`\x1b[33m${message}\x1b[0m`)
 }
