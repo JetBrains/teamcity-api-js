@@ -19,15 +19,15 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@jetbrains/ring-ui": "5.0.104",
-    "commitizen": "4.2.4",
+    "@jetbrains/ring-ui": "5.0.163",
+    "commitizen": "4.3.0",
     "cz-conventional-changelog": "3.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "standard-version": "9.5.0",
-    "typescript": "4.9.4",
-    "webpack": "5.74.0",
-    "webpack-bundle-analyzer": "4.5.0"
+    "typescript": "5.1.6",
+    "webpack": "5.88.2",
+    "webpack-bundle-analyzer": "4.9.0"
   },
   "scripts": {
     "commit": "git-cz",
