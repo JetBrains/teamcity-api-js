@@ -1,6 +1,6 @@
 {
   "name": "@jetbrains/teamcity-api",
-  "version": "2023.5.0-alpha.5",
+  "version": "2024.7.0-v.0",
   "description": "",
   "main": "index.js",
   "repository": {
@@ -32,7 +32,7 @@
   "scripts": {
     "commit": "git-cz",
     "version:ci": "standard-version",
-    "release:ci": "git push --follow-tags origin master && npm publish"
+    "release:ci": "git push --follow-tags origin release/2024.07.x && npm publish"
   },
   "browserslist": [
     "extends @jetbrains/browserslist-config-teamcity"
