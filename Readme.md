@@ -1,3 +1,5 @@
+[![official JetBrains project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
+
 # TeamCity UI Plugin definitions module
 
 This module contains typings for the updated TeamCity UI Plugin development guide. It provides typings for TypeScript and should be used as a helper in time you develop the Plugin for the TeamCity. 
