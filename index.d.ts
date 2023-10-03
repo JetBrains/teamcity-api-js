@@ -2,6 +2,7 @@ declare module '@jetbrains/teamcity-api' {
   import type {
     ButtonType,
     IconButtonType,
+    SvgIconType,
     BuildNumberType,
     ContentPanelType,
     EntityPathType,
@@ -50,6 +51,7 @@ declare module '@jetbrains/teamcity-api' {
   type ComponentsType = {
     readonly Button: ButtonType
     readonly IconButton: IconButtonType
+    readonly SvgIcon: SvgIconType
     readonly BuildNumber: BuildNumberType
     readonly ContentPanel: ContentPanelType
     readonly EntityPath: EntityPathType
