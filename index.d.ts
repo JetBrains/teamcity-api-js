@@ -134,9 +134,6 @@ declare module '@jetbrains/teamcity-api' {
       readonly agentPoolId?: string | null | undefined
       readonly agentTypeId?: string | null | undefined
       readonly testRunId?: string | null | undefined
-      readonly pipelineId?: string | null | undefined
-      readonly runId?: string | null | undefined
-      readonly jobId?: string | null | undefined
     }
   }
 
