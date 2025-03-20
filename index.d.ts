@@ -112,6 +112,7 @@ declare module '@jetbrains/teamcity-api' {
     containerTagName?: string
     containerClassNames?: string | Array<string>
     debug?: boolean
+    _internal?: boolean
   }
 
   export type PluginConstructorArguments = {
