@@ -1,3 +1,5 @@
+import {ContentPanelContextValue} from "./types/components/ContentPanel";
+
 declare module '@jetbrains/teamcity-api' {
   import type {
     ButtonType,
@@ -139,6 +141,7 @@ declare module '@jetbrains/teamcity-api' {
       readonly agentTypeId?: string | null | undefined
       readonly testRunId?: string | null | undefined
     }
+    contentPanel: ContentPanelContextValue
   }
 
   interface PluginCommon {

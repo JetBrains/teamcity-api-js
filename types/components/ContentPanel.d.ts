@@ -1,3 +1,14 @@
+export type ContentPanelParams = {
+  panelType: string
+  expandedByDefault: boolean
+}
+
+export type ContentPanelContextValue = {
+  expanded: boolean
+  setExpanded: (expanded: boolean) => void
+  setParams: (params: ContentPanelParams) => void
+}
+
 export type ContentPanelProps = {
   readonly className?: string
   readonly headingClassName?: string
