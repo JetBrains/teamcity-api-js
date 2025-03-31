@@ -1,5 +1,3 @@
-import {ContentPanelContextValue} from "./types/components/ContentPanel";
-
 declare module '@jetbrains/teamcity-api' {
   import type {
     ButtonType,
@@ -33,6 +31,8 @@ declare module '@jetbrains/teamcity-api' {
   export type {
     ButtonProps,
     BuildNumberProps,
+    ContentPanelParams,
+    ContentPanelContextValue,
     ContentPanelProps,
     EntityPathProps,
     RouterLinkProps,

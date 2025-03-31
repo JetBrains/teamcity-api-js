@@ -1,5 +1,5 @@
 export type {BuildNumberType, BuildNumberProps} from './BuildNumber'
-export type {ContentPanelType, ContentPanelProps} from './ContentPanel'
+export type {ContentPanelType, ContentPanelParams, ContentPanelContextValue, ContentPanelProps} from './ContentPanel'
 export type {EntityPathType, EntityPathProps} from './EntityPath'
 export type {RouterButtonType, RouterButtonProps} from './RouterButton'
 export type {RouterLinkType, RouterLinkProps} from './RouterLink'
