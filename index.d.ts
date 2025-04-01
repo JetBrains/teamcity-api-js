@@ -1,4 +1,4 @@
-declare module '@jetbrains/teamcity-api' {
+declare module '@jetbrains/teamcity-ui' {
   import type {
     ButtonType,
     IconButtonType,
@@ -9,24 +9,24 @@ declare module '@jetbrains/teamcity-api' {
     RouterLinkType,
     RouterButtonType,
     ServiceMessageType,
-  } from '@jetbrains/teamcity-api/types/components'
+  } from '@jetbrains/teamcity-ui/types/components'
 
   import type {
     RestServiceType,
     AlertServiceType,
     HintsServiceType,
-  } from '@jetbrains/teamcity-api/types/services'
+  } from '@jetbrains/teamcity-ui/types/services'
 
   import type {
     RequestTextType,
     RequestJSONType,
-  } from '@jetbrains/teamcity-api/types/services/REST'
+  } from '@jetbrains/teamcity-ui/types/services/REST'
 
   import type {
     Alert,
     AlertKey,
     AlertType,
-  } from '@jetbrains/teamcity-api/types/services/AlertService'
+  } from '@jetbrains/teamcity-ui/types/services/AlertService'
 
   export type {
     ButtonProps,
@@ -38,7 +38,7 @@ declare module '@jetbrains/teamcity-api' {
     RouterLinkProps,
     RouterButtonProps,
     ServiceMessageProps,
-  } from '@jetbrains/teamcity-api/types/components'
+  } from '@jetbrains/teamcity-ui/types/components'
 
   type RenderType = <P extends {} | null | undefined>(elementOrId: HTMLElement | string, Type: React.ComponentType<P>, props: P) => void
 
@@ -232,23 +232,23 @@ declare module '@jetbrains/teamcity-api' {
   export default TeamCityAPI
 }
 
-declare module '@jetbrains/teamcity-api/plugin' {
-  import {Plugin} from '@jetbrains/teamcity-api'
+declare module '@jetbrains/teamcity-ui/plugin' {
+  import {Plugin} from '@jetbrains/teamcity-ui'
   export default Plugin
 }
 
-declare module '@jetbrains/teamcity-api/tab-plugin' {
-  import {TabPlugin} from '@jetbrains/teamcity-api'
+declare module '@jetbrains/teamcity-ui/tab-plugin' {
+  import {TabPlugin} from '@jetbrains/teamcity-ui'
   export default TabPlugin
 }
 
-declare module '@jetbrains/teamcity-api/plugin-registry' {
-  import {pluginRegistry} from '@jetbrains/teamcity-api'
+declare module '@jetbrains/teamcity-ui/plugin-registry' {
+  import {pluginRegistry} from '@jetbrains/teamcity-ui'
   export default pluginRegistry
 }
 
-declare module '@jetbrains/teamcity-api/components' {
-  import {Components} from '@jetbrains/teamcity-api'
+declare module '@jetbrains/teamcity-ui/components' {
+  import {Components} from '@jetbrains/teamcity-ui'
   import type {
     BuildNumberType,
     ContentPanelType,
@@ -256,7 +256,7 @@ declare module '@jetbrains/teamcity-api/components' {
     RouterButtonType,
     RouterLinkType,
     ServiceMessageType,
-  } from '@jetbrains/teamcity-api/types/components'
+  } from '@jetbrains/teamcity-ui/types/components'
 
   export const BuildNumber: BuildNumberType
   export const ContentPanel: ContentPanelType
@@ -272,17 +272,17 @@ declare module '@jetbrains/teamcity-api/components' {
     RouterButtonProps,
     RouterLinkProps,
     ServiceMessageProps,
-  } from '@jetbrains/teamcity-api/types/components'
+  } from '@jetbrains/teamcity-ui/types/components'
   export default Components
 }
 
-declare module '@jetbrains/teamcity-api/services' {
-  import {Services} from '@jetbrains/teamcity-api'
+declare module '@jetbrains/teamcity-ui/services' {
+  import {Services} from '@jetbrains/teamcity-ui'
   import {
     RestServiceType,
     AlertServiceType,
     HintsServiceType,
-  } from '@jetbrains/teamcity-api/types/services'
+  } from '@jetbrains/teamcity-ui/types/services'
 
   export const REST: RestServiceType
   export const AlertService: AlertServiceType
@@ -291,22 +291,22 @@ declare module '@jetbrains/teamcity-api/services' {
   export default Services
 }
 
-declare module '@jetbrains/teamcity-api/utils' {
-  import {utils} from '@jetbrains/teamcity-api'
+declare module '@jetbrains/teamcity-ui/utils' {
+  import {utils} from '@jetbrains/teamcity-ui'
   export default utils
 }
 
-declare module '@jetbrains/teamcity-api/react' {
+declare module '@jetbrains/teamcity-ui/react' {
   import * as module from 'react'
   export default module
 }
 
-declare module '@jetbrains/teamcity-api/react-dom' {
+declare module '@jetbrains/teamcity-ui/react-dom' {
   import * as module from 'react-dom'
   export default module
 }
 
-declare module '@jetbrains/teamcity-api/react-dom/client' {
+declare module '@jetbrains/teamcity-ui/react-dom/client' {
   import * as module from 'react-dom/client'
   export default module
 }

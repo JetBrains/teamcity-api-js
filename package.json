@@ -1,13 +1,13 @@
 {
-  "name": "@jetbrains/teamcity-api",
-  "version": "2025.7.0-alpha.3",
+  "name": "@jetbrains/teamcity-ui",
+  "version": "1.0.0-alpha.0",
   "description": "",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JetBrains/teamcity-api-js.git"
+    "url": "git+https://github.com/JetBrains/teamcity-ui.git"
   },
-  "homepage": "https://github.com/JetBrains/teamcity-api-js#readme",
+  "homepage": "https://github.com/JetBrains/teamcity-ui#readme",
   "keywords": [
     "teamcity",
     "jetbrains"

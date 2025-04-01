@@ -1,8 +1,8 @@
 [![official JetBrains project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
-# TeamCity UI Plugin definitions module
+# TeamCity UI Library
 
-This module contains typings for the updated TeamCity UI Plugin development guide. It provides typings for TypeScript and should be used as a helper in time you develop the Plugin for the TeamCity. 
+This module contains components and utilities used in TeamCity UI. It can also be used as a helper in time you develop the Plugin for the TeamCity. 
 
 **Warning! This module is still under active development.** 
  
@@ -14,16 +14,12 @@ There are some useful resources for this repository:
 
 To start using the package, import it as a module:
 
-``import TeamCityAPI from "@jetbrains/teamcity-api"``
+``import TeamCityUI from "@jetbrains/teamcity-ui"``
 
 Module contains a bunch of useful items to assist you during plugin development. The set of items is not in a final version yet. 
 
 `Components` &mdash; set of reusable TeamCity Components.
 
-`React` &mdash; exposed React instance. It's vital to use the same React library version to integrate your plugin into the TeamCity React vDOM tree ([see the full explanation](https://plugins.jetbrains.com/docs/teamcity/spa-ui-plugins.html)).  
-
-`ReactDOM` &mdash; exposed ReactDOM instance. It's vital to use the same React library version to integrate your plugin into the TeamCity React vDOM tree ([see the full explanation](https://plugins.jetbrains.com/docs/teamcity/spa-ui-plugins.html)).  
- 
 `utils` &mdash; set of utilities
  
 ```utils.requestJSON``` &mdash; function to request and parse a JSON from the server. It already contains all the headers for the request and automatically parses the response.
