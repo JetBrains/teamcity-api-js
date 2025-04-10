@@ -2,3 +2,6 @@ node_modules
 yarn-error.log
 .idea
 npmlogs
+*storybook.log
+dist
+*.css.d.ts

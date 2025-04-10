@@ -1,5 +1,6 @@
 const fs = require('fs')
 const path = require('path')
+
 const webpack = require('webpack')
 const ringUiConfig = require('@jetbrains/ring-ui/webpack.config')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
@@ -23,7 +24,7 @@ module.exports = function getWebpackConfig(options) {
   const {useTypeScript, useFlow, srcPath, outputPath, entry} = options
 
   if (useFlow) {
-    printWarning("Flow support is deprecated and will be removed soon. Use the TypeScript instead.")
+    printWarning('Flow support is deprecated and will be removed soon. Use the TypeScript instead.')
   }
 
   let packageName
@@ -34,7 +35,7 @@ module.exports = function getWebpackConfig(options) {
       packageJSON = JSON.parse(file)
     } catch (e) {
       printWarning(
-        "The package.json file was not found. Please pass the 'cssPrefix' option to the getWebpackConfig() function."
+        "The package.json file was not found. Please pass the 'cssPrefix' option to the getWebpackConfig() function.",
       )
     }
     if (packageJSON != null) {
@@ -43,7 +44,7 @@ module.exports = function getWebpackConfig(options) {
       } else {
         printWarning(
           "The 'name' property in package.json was not found. " +
-          "Please either specify it or pass the 'cssPrefix' option to the getWebpackConfig() function."
+            "Please either specify it or pass the 'cssPrefix' option to the getWebpackConfig() function.",
         )
       }
     }
@@ -59,9 +60,12 @@ module.exports = function getWebpackConfig(options) {
             config: path.join(__dirname, './postcss.config.js'),
           },
         }
-      } else if (item.loader.includes('/css-loader') && item.options != null && item.options.modules != null) {
-        item.options.modules.localIdentName =
-          `${options.cssPrefix != null ? `${options.cssPrefix}_`: ''}[local]_[hash:base64:4]`
+      } else if (
+        item.loader.includes('/css-loader') &&
+        item.options != null &&
+        item.options.modules != null
+      ) {
+        item.options.modules.localIdentName = `${options.cssPrefix != null ? `${options.cssPrefix}_` : ''}[local]_[hash:base64:4]`
         if (packageName != null) {
           item.options.modules.localIdentHashSalt = packageName
         }
@@ -74,18 +78,10 @@ module.exports = function getWebpackConfig(options) {
     options: {
       cacheDirectory: true,
       babelrc: false,
-      extends: babelConfigExists
-          ? './babel.config.js'
-          : path.join(__dirname, './babel.config.js'),
+      extends: babelConfigExists ? './babel.config.js' : path.join(__dirname, './babel.config.js'),
     },
   }
   Object.assign(ringUiConfig.loaders.babelLoader, babelLoader)
-
-  const globalObj = 'window.TeamCityAPI'
-  const externals = {
-    react: `${globalObj}.React`,
-    'react-dom': `${globalObj}.ReactDOM`,
-  }
 
   return (env = {}) => ({
     mode: env.production ? 'production' : 'development',
@@ -96,10 +92,10 @@ module.exports = function getWebpackConfig(options) {
       filename: 'bundle.js',
     },
     resolve: useTypeScript
-        ? {
+      ? {
           extensions: ['.ts', '.tsx', '.js', '.css'],
         }
-        : undefined,
+      : undefined,
     module: {
       rules: [
         ...ringUiConfig.config.module.rules,
@@ -109,9 +105,11 @@ module.exports = function getWebpackConfig(options) {
           use: [
             {
               loader: 'babel-loader',
-              options: !tsConfigExists  ? {
-                configFile: path.join(__dirname, './plugin.tsconfig.json')
-              } : undefined,
+              options: !tsConfigExists
+                ? {
+                    configFile: path.join(__dirname, './plugin.tsconfig.json'),
+                  }
+                : undefined,
             },
           ],
         },
@@ -123,11 +121,7 @@ module.exports = function getWebpackConfig(options) {
         },
         {
           test: /\.svg$/,
-          include: [
-            require('@jetbrains/icons'),
-            require('@jetbrains/logos'),
-            srcPath
-          ],
+          include: [/node_modules\/@jetbrains\/(icons|logos)/, srcPath],
           use: [
             babelLoader,
             {
@@ -154,7 +148,7 @@ export default React.memo(function ${componentName}(${props}) {
               },
             },
           ],
-        }
+        },
       ].filter(Boolean),
     },
     devServer: {
@@ -162,18 +156,17 @@ export default React.memo(function ${componentName}(${props}) {
       port: env.port,
       host: env.host,
     },
-    externals,
     plugins: [
       new webpack.IgnorePlugin({
         resourceRegExp: /^\.\/locale$/,
-        contextRegExp: /moment$/
+        contextRegExp: /moment$/,
       }),
       env.analyze &&
-      new BundleAnalyzerPlugin({
-        analyzerMode: 'static',
-        reportFilename: 'bundle-report.html',
-        openAnalyzer: false,
-      }),
+        new BundleAnalyzerPlugin({
+          analyzerMode: 'static',
+          reportFilename: 'bundle-report.html',
+          openAnalyzer: false,
+        }),
     ].filter(Boolean),
   })
 }

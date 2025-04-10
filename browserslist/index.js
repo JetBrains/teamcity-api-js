@@ -1,4 +1,1 @@
-module.exports = [
-  "defaults",
-  "not ie 11",
-]
+module.exports = ['defaults', 'not ie 11']

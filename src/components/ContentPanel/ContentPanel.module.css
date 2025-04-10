@@ -1,0 +1,74 @@
+@value unit: var(--ring-unit);
+
+.wrapper {
+  margin-bottom: calc(unit * 2);
+
+  &.expanded {
+    margin-bottom: calc(unit * 4);
+  }
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+
+  margin-bottom: unit;
+}
+
+.expandable {
+  & .header {
+    margin-left: calc((unit * -2) - 2px);
+  }
+}
+
+.htmlHeading.htmlHeading {
+  display: flex;
+  align-items: baseline;
+
+  height: var(--ring-line-height);
+
+  margin: 0;
+  padding: 0;
+
+  font: inherit;
+  font-weight: bold;
+}
+
+.subheading {
+  font-size: var(--ring-font-size-smaller);
+  font-weight: normal;
+}
+
+.heading,
+.subheading {
+  margin-right: unit;
+
+  color: var(--ring-text-color);
+}
+
+.content.border {
+  padding: calc(unit * 2);
+  padding-top: calc(unit * 1.5);
+
+  border: 1px solid var(--ring-line-color);
+
+  border-radius: 3px;
+}
+
+.chevronIcon {
+  margin-right: calc(unit / 2);
+
+  cursor: pointer;
+
+  color: var(--ring-icon-secondary-color);
+}
+
+.chevronIcon,
+.heading,
+.subheading {
+  line-height: var(--ring-line-height);
+}
+
+.errorHeading {
+  color: var(--ring-error-color);
+}

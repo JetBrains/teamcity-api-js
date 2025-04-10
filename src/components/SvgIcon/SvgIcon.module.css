@@ -1,0 +1,4 @@
+.icon > svg {
+  overflow: visible;
+  shape-rendering: geometricPrecision;
+}

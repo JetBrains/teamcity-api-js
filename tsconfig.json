@@ -1,5 +1,14 @@
 {
   "compilerOptions": {
-    "skipLibCheck": true
-  }
+    "skipLibCheck": true,
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "types": ["vite/client"],
+    "lib": ["DOM", "ESNext"],
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outDir": "dist",
+  },
+  "include": ["src", ".storybook"]
 }

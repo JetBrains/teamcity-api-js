@@ -28,17 +28,15 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [2023.5.0-alpha.0](https://github.com/JetBrains/teamcity-ui/compare/v2023.4.0-alpha.0...v2023.5.0-alpha.0) (2023-05-10)
 
-
 ### Features
 
-* **components:** added typings for Button and IconButton components ([afa608f](https://github.com/JetBrains/teamcity-ui/commit/afa608f17bb34e1ac812a99306087d3e417c471d))
+- **components:** added typings for Button and IconButton components ([afa608f](https://github.com/JetBrains/teamcity-ui/commit/afa608f17bb34e1ac812a99306087d3e417c471d))
 
 ## [2023.4.0-alpha.0](https://github.com/JetBrains/teamcity-ui/compare/v2023.3.1-alpha.3...v2023.4.0-alpha.0) (2023-05-10)
 
-
 ### Features
 
-* **components:** added typings for Button and IconButton components and added SAKURA_AGENT_ACTIONS placeId ([3e5d9f7](https://github.com/JetBrains/teamcity-ui/commit/3e5d9f7f9f12ac160f4b7b8e65b76ed8a70a099f))
+- **components:** added typings for Button and IconButton components and added SAKURA_AGENT_ACTIONS placeId ([3e5d9f7](https://github.com/JetBrains/teamcity-ui/commit/3e5d9f7f9f12ac160f4b7b8e65b76ed8a70a099f))
 
 ### [2023.3.1-alpha.3](https://github.com/JetBrains/teamcity-ui/compare/v2023.3.1-alpha.2...v2023.3.1-alpha.3) (2023-04-18)
 
@@ -72,24 +70,21 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [2021.1.0-alpha.7](https://github.com/JetBrains/teamcity-ui/compare/v2021.1.0-alpha.6...v2021.1.0-alpha.7) (2021-06-21)
 
-
 ### Bug Fixes
 
-* **[publish]:** fix React.Ref usage ([8fc6fe5](https://github.com/JetBrains/teamcity-ui/commit/8fc6fe501a6cc26c216e18781a3399b6e5cf71ea))
+- **[publish]:** fix React.Ref usage ([8fc6fe5](https://github.com/JetBrains/teamcity-ui/commit/8fc6fe501a6cc26c216e18781a3399b6e5cf71ea))
 
 ## [2021.1.0-alpha.6](https://github.com/JetBrains/teamcity-ui/compare/v2021.1.0-alpha.5...v2021.1.0-alpha.6) (2021-06-18)
 
-
 ### Bug Fixes
 
-* **typescript:** use interfaces instead of classes [publish] ([ebb7e44](https://github.com/JetBrains/teamcity-ui/commit/ebb7e44f473198954eba432ad77292834beaff39))
+- **typescript:** use interfaces instead of classes [publish] ([ebb7e44](https://github.com/JetBrains/teamcity-ui/commit/ebb7e44f473198954eba432ad77292834beaff39))
 
 ## [2021.1.0-alpha.5](https://github.com/JetBrains/teamcity-ui/compare/v2021.1.0-alpha.4...v2021.1.0-alpha.5) (2021-06-18)
 
-
 ### Features
 
-* **typescript:** expose PluginClass [publish] ([dabafd4](https://github.com/JetBrains/teamcity-ui/commit/dabafd4b99b8c88e083efa49fb7d060da530e89e))
+- **typescript:** expose PluginClass [publish] ([dabafd4](https://github.com/JetBrains/teamcity-ui/commit/dabafd4b99b8c88e083efa49fb7d060da530e89e))
 
 ## [2021.1.0-alpha.4](https://github.com/JetBrains/teamcity-ui/compare/v2021.1.0-alpha.3...v2021.1.0-alpha.4) (2021-06-01)
 
@@ -131,32 +126,28 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [2020.2.0-alpha.15](https://github.com/JetBrains/teamcity-ui/compare/v2020.2.0-alpha.14...v2020.2.0-alpha.15) (2020-11-02)
 
-
 ### Features
 
-* added SAKURA_BUILD_OVERVIEW PlaceID ([6db09a4](https://github.com/JetBrains/teamcity-ui/commit/6db09a4c712a063f39d74cd7229d76e21bf4bc64))
-* updated the Constructor PlaceID argument. Now it accepts the Array of PlaceIds ([9d742e3](https://github.com/JetBrains/teamcity-ui/commit/9d742e30696d0adc2d7a93a635e5aabc607b3350))
+- added SAKURA_BUILD_OVERVIEW PlaceID ([6db09a4](https://github.com/JetBrains/teamcity-ui/commit/6db09a4c712a063f39d74cd7229d76e21bf4bc64))
+- updated the Constructor PlaceID argument. Now it accepts the Array of PlaceIds ([9d742e3](https://github.com/JetBrains/teamcity-ui/commit/9d742e30696d0adc2d7a93a635e5aabc607b3350))
 
 ## [2020.2.0-alpha.14](https://github.com/JetBrains/teamcity-ui/compare/v2020.2.0-alpha.13...v2020.2.0-alpha.14) (2020-10-29)
 
-
 ### Bug Fixes
 
-* changed isSakuraUI to a function ([7999869](https://github.com/JetBrains/teamcity-ui/commit/79998698bef40bcd533e777a956339fb3e05f09f))
+- changed isSakuraUI to a function ([7999869](https://github.com/JetBrains/teamcity-ui/commit/79998698bef40bcd533e777a956339fb3e05f09f))
 
 ## [2020.2.0-alpha.13](https://github.com/JetBrains/teamcity-ui/compare/v2020.2.0-alpha.12...v2020.2.0-alpha.13) (2020-10-29)
 
-
 ### Features
 
-* **typings:** added isSakuraUI to UtilsType ([6fab7c5](https://github.com/JetBrains/teamcity-ui/commit/6fab7c5a0a0b60d5de9c5934af35d9d0a2080355))
+- **typings:** added isSakuraUI to UtilsType ([6fab7c5](https://github.com/JetBrains/teamcity-ui/commit/6fab7c5a0a0b60d5de9c5934af35d9d0a2080355))
 
 ## [2020.2.0-alpha.12](https://github.com/JetBrains/teamcity-ui/compare/v2020.2.0-alpha.11...v2020.2.0-alpha.12) (2020-10-28)
 
-
 ### Features
 
-* added PlaceIDS for the Classic UI ([e270cce](https://github.com/JetBrains/teamcity-ui/commit/e270cceacf00c266e0a70c7544e75f082e0d7bee))
+- added PlaceIDS for the Classic UI ([e270cce](https://github.com/JetBrains/teamcity-ui/commit/e270cceacf00c266e0a70c7544e75f082e0d7bee))
 
 ## [2020.2.0-alpha.11](https://github.com/JetBrains/teamcity-ui/compare/v2020.2.0-alpha.10...v2020.2.0-alpha.11) (2020-10-14)
 
