@@ -61,7 +61,13 @@ export default tseslint.config(
       'import/no-extraneous-dependencies': [
         error,
         {
-          devDependencies: ['*.config.js', '*.config.mjs', '**/*.stories.tsx', '.storybook/**'],
+          devDependencies: [
+            'eslint.config.mjs',
+            'vite.config.mjs',
+            '**/*.stories.tsx',
+            '.storybook/**',
+            'tsc-teamcity.js',
+          ],
 
           peerDependencies: true,
         },
@@ -83,7 +89,7 @@ export default tseslint.config(
     {rules: {'import/no-commonjs': ignore, '@typescript-eslint/no-require-imports': ignore}},
   ].map(config => ({
     ...config,
-    files: ['*.config.js', 'browserslist/index.js', 'getWebpackConfig.js'],
+    files: ['*.config.js', 'browserslist/index.js', 'getWebpackConfig.js', 'tsc-teamcity.js'],
   })),
   {
     files: ['**/*.mjs'],
