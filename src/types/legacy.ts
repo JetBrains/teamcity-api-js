@@ -162,7 +162,7 @@ export type RouterLinkProps = RouterButtonProps & {
 
 export type RouterLinkType = React.ComponentType<RouterLinkProps>
 
-type Icon = React.ComponentType<JSX.IntrinsicElements['svg']>
+type Icon = React.ComponentType<React.JSX.IntrinsicElements['svg']>
 
 export type ServiceMessageProps = {
   readonly icon?: Icon | string
